@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IBEM - Instituto Brasileiro de Educação Moderna | Cursos Profissionalizantes</title>
+  <meta name="description"
+    content="Instituto Brasileiro de Educação Moderna (IBEM). Cursos profissionalizantes presenciais e EAD com foco no mercado de trabalho. Pensou em cursos, pense bem. Faça IBEM!">
+
+  <!-- Google Fonts: Poppins & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Folha de Estilos Externa -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+</head>
+
+<body>
+  <!-- BARRA DE NAVEGAÇÃO FIXA (STICKY NAVBAR) -->
+  <header class="site-navbar">
+    <div class="navbar-container">
+      <a href="#inicio" class="navbar-brand">
+        <img src="assets/img/logo.png" alt="Logotipo IBEM" class="navbar-logo" width="46" height="46">
+        <div class="navbar-brand-text">
+          <span class="brand-name">IBEM</span>
+          <span class="brand-tagline">Instituto de Educação Moderna</span>
+        </div>
+      </a>
+
+      <nav class="navbar-menu" id="navbarMenu" aria-label="Navegação Principal">
+        <a href="#inicio" class="nav-link active">Início</a>
+        <a href="#cursos-tecnicos" class="nav-link">Cursos Técnicos</a>
+        <a href="#cursos-profissionalizantes" class="nav-link">Profissionalizantes</a>
+        <a href="#sobre-ibem" class="nav-link">Sobre o IBEM</a>
+        <a href="#diferenciais" class="nav-link">Diferenciais</a>
+        <a href="#contato" class="nav-link">Contato</a>
+      </nav>
+
+      <div class="navbar-actions">
+        <button type="button" onclick="abrirLogin()" class="btn-nav-portal" title="Acessar Portal Acadêmico">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          <span>Portal do Aluno</span>
+        </button>
+        <button type="button" class="navbar-toggle" onclick="toggleMobileMenu()" aria-label="Abrir Menu de Navegação">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTAINER PRINCIPAL -->
+  <main class="main-wrapper">
+
+    <!-- ================= HERO SECTION (DESIGN INSTITUCIONAL EDUCACIONAL) ================= -->
+    <section class="header-hero" id="inicio">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-headline">
+            Formação técnica e profissionalizante com foco <span class="highlight">no mercado de trabalho</span>.
+          </h1>
+          <p class="hero-subheadline">
+            O Instituto Brasileiro de Educação Moderna prepara alunos e profissionais para as principais exigências do setor produtivo. Mais de 38 opções de cursos técnicos e profissionalizantes com metodologia prática, laboratórios estruturados e diplomas com validade nacional.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECÇÃO NOSSOS CURSOS -->
+    <section class="courses-container" id="cursos">
+      <div class="courses-inner">
+
+      <!-- ================= ÁREA 1: CURSOS TÉCNICOS ================= -->
+      <div class="courses-area" id="cursos-tecnicos">
+        <div class="section-header">
+          <span class="section-tag tag-tecnico">Especialização Técnica</span>
+          <h2 class="section-title">Cursos Técnicos</h2>
+          <p class="section-desc">Formação prática focada em habilidades técnicas, tecnologia, setor industrial e
+            serviços essenciais.</p>
+        </div>
+
+        <div class="courses-grid">
+
+          <!-- Técnico 01: Segurança do Trabalho -->
+          <article class="course-card" onclick="abrirTecnicoModal('Segurança do Trabalho', '1440h', '12 a 14 meses', 'Formação técnica para prevenção de acidentes de trabalho, normas regulamentadoras (NRs), saúde ocupacional, perícias técnicas e segurança patrimonial e coletiva.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Segurança do Trabalho', '1440h', '12 a 14 meses', 'Formação técnica para prevenção de acidentes de trabalho, normas regulamentadoras (NRs), saúde ocupacional, perícias técnicas e segurança patrimonial e coletiva.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-safety" title="Segurança do Trabalho">
+                  <svg viewBox="0 0 24 24">
+                    <path class="anim-cap-float" d="M2 13a10 10 0 0 1 20 0H2z"></path>
+                    <path d="M4 17h16"></path>
+                    <path d="M12 3v10"></path>
+                    <circle cx="12" cy="8" r="2"></circle>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">01</span>
+                  <span class="card-badge badge-workload">1440h</span>
+                  <h3 class="card-title">Segurança do Trabalho</h3>
+                </div>
+              </div>
+              <p class="card-summary">Normas regulamentadoras (NRs), prevenção de acidentes, perícias técnicas e saúde ocupacional.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 02: Eletrotécnica -->
+          <article class="course-card" onclick="abrirTecnicoModal('Eletrotécnica', '1440h', '12 a 14 meses', 'Planejamento, instalação e manutenção de sistemas elétricos residenciais, prediais e industriais, com ênfase em eficiência energética e automação.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Eletrotécnica', '1440h', '12 a 14 meses', 'Planejamento, instalação e manutenção de sistemas elétricos residenciais, prediais e industriais, com ênfase em eficiência energética e automação.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-electric" title="Eletrotécnica">
+                  <svg viewBox="0 0 24 24">
+                    <polygon class="anim-lightning" points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">02</span>
+                  <span class="card-badge badge-workload">1440h</span>
+                  <h3 class="card-title">Eletrotécnica</h3>
+                </div>
+              </div>
+              <p class="card-summary">Projetos elétricos, comandos elétricos, subestações, redes de distribuição e geração de energia.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 03: Mecânica Industrial -->
+          <article class="course-card" onclick="abrirTecnicoModal('Mecânica Industrial', '1440h', '12 a 14 meses', 'Capacitação completa em manutenção mecânica preventiva e corretiva, usinagem convencional e CNC, pneumática, hidráulica e controle de qualidade industrial.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Mecânica Industrial', '1440h', '12 a 14 meses', 'Capacitação completa em manutenção mecânica preventiva e corretiva, usinagem convencional e CNC, pneumática, hidráulica e controle de qualidade industrial.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-industry" title="Mecânica Industrial">
+                  <svg viewBox="0 0 24 24">
+                    <g class="anim-gear-spin">
+                      <circle cx="12" cy="12" r="3"></circle>
+                      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">03</span>
+                  <span class="card-badge badge-workload">1440h</span>
+                  <h3 class="card-title">Mecânica Industrial</h3>
+                </div>
+              </div>
+              <p class="card-summary">Usinagem, manutenção de maquinários industriais, soldagem, pneumática e hidráulica.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 04: Administração -->
+          <article class="course-card" onclick="abrirTecnicoModal('Administração', '1200h', '12 a 14 meses', 'Gestão corporativa, planejamento estratégico, finanças empresariais, marketing e tomada de decisão operacional para pequenas, médias e grandes empresas.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Administração', '1200h', '12 a 14 meses', 'Gestão corporativa, planejamento estratégico, finanças empresariais, marketing e tomada de decisão operacional para pequenas, médias e grandes empresas.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-admin" title="Administração">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    <line class="anim-bar-1" x1="6" y1="18" x2="6" y2="12" stroke-width="2.5"></line>
+                    <line class="anim-bar-2" x1="12" y1="18" x2="12" y2="10" stroke-width="2.5"></line>
+                    <line class="anim-bar-3" x1="18" y1="18" x2="18" y2="13" stroke-width="2.5"></line>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">04</span>
+                  <span class="card-badge badge-workload">1200h</span>
+                  <h3 class="card-title">Administração</h3>
+                </div>
+              </div>
+              <p class="card-summary">Gestão empresarial, rotinas financeiras, controladoria, processos e planejamento estratégico.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 05: Automação Industrial -->
+          <article class="course-card" onclick="abrirTecnicoModal('Automação Industrial', '1440h', '12 a 14 meses', 'Desenvolvimento e integração de processos industriais inteligentes: robótica, CLP, controladores lógicos programáveis, inversores e instrumentação.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Automação Industrial', '1440h', '12 a 14 meses', 'Desenvolvimento e integração de processos industriais inteligentes: robótica, CLP, controladores lógicos programáveis, inversores e instrumentação.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-tech" title="Automação Industrial">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="4" y="19" width="16" height="3" rx="1"></rect>
+                    <path d="M12 19V13"></path>
+                    <circle cx="12" cy="11" r="2"></circle>
+                    <path class="anim-screen-line" d="M12 9L7 5"></path>
+                    <circle cx="6" cy="4" r="1.5"></circle>
+                    <path d="M12 9l5-4"></path>
+                    <circle cx="18" cy="4" r="1.5"></circle>
+                    <path d="M9 16h6"></path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">05</span>
+                  <span class="card-badge badge-workload">1440h</span>
+                  <h3 class="card-title">Automação Industrial</h3>
+                </div>
+              </div>
+              <p class="card-summary">Programação de CLPs, sensores, robótica industrial e controle de linhas automatizadas.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 06: Edificações -->
+          <article class="course-card" onclick="abrirTecnicoModal('Edificações', '1440h', '12 a 14 meses', 'Supervisão técnica de obras civis, orçamento, ensaios de materiais, desenho técnico e leitura de plantas arquitetônicas e estruturais.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Edificações', '1440h', '12 a 14 meses', 'Supervisão técnica de obras civis, orçamento, ensaios de materiais, desenho técnico e leitura de plantas arquitetônicas e estruturais.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-building" title="Edificações">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                    <path d="M9 22v-4h6v4"></path>
+                    <line x1="8" y1="6" x2="10" y2="6"></line>
+                    <line x1="14" y1="6" x2="16" y2="6"></line>
+                    <line x1="8" y1="10" x2="10" y2="10"></line>
+                    <line x1="14" y1="10" x2="16" y2="10"></line>
+                    <line x1="8" y1="14" x2="10" y2="14"></line>
+                    <line x1="14" y1="14" x2="16" y2="14"></line>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">06</span>
+                  <span class="card-badge badge-workload">1440h</span>
+                  <h3 class="card-title">Edificações</h3>
+                </div>
+              </div>
+              <p class="card-summary">Planejamento de obras, orçamento, leitura de projetos e acompanhamento da construção civil.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 07: Eletrônica -->
+          <article class="course-card" onclick="abrirTecnicoModal('Eletrônica', '1440h', '12 a 14 meses', 'Análise, projeto, montagem e manutenção de circuitos analógicos e digitais, microcontroladores, instrumentação eletrônica e placas de circuito impresso.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Eletrônica', '1440h', '12 a 14 meses', 'Análise, projeto, montagem e manutenção de circuitos analógicos e digitais, microcontroladores, instrumentação eletrônica e placas de circuito impresso.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-electric" title="Eletrônica">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="6" y="6" width="12" height="12" rx="2"></rect>
+                    <rect x="9" y="9" width="6" height="6" class="anim-screen-line"></rect>
+                    <line x1="9" y1="1" x2="9" y2="6"></line>
+                    <line x1="15" y1="1" x2="15" y2="6"></line>
+                    <line x1="9" y1="18" x2="9" y2="23"></line>
+                    <line x1="15" y1="18" x2="15" y2="23"></line>
+                    <line x1="1" y1="9" x2="6" y2="9"></line>
+                    <line x1="1" y1="15" x2="6" y2="15"></line>
+                    <line x1="18" y1="9" x2="23" y2="9"></line>
+                    <line x1="18" y1="15" x2="23" y2="15"></line>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">07</span>
+                  <span class="card-badge badge-workload">1440h</span>
+                  <h3 class="card-title">Eletrônica</h3>
+                </div>
+              </div>
+              <p class="card-summary">Montagem e reparo de circuitos eletrônicos, placas, microcontroladores e sistemas integrados.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 08: Logística -->
+          <article class="course-card" onclick="abrirTecnicoModal('Logística', '1000h', '12 a 14 meses', 'Gestão operacional de suprimentos, compras, controle de estoque, transporte, modais logísticos e armazenagem estratégica.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Logística', '1000h', '12 a 14 meses', 'Gestão operacional de suprimentos, compras, controle de estoque, transporte, modais logísticos e armazenagem estratégica.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-logistics" title="Logística">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+                    <path d="m3.3 7 8.7 5 8.7-5"></path>
+                    <path d="M12 22V12"></path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">08</span>
+                  <span class="card-badge badge-workload">1000h</span>
+                  <h3 class="card-title">Logística</h3>
+                </div>
+              </div>
+              <p class="card-summary">Gestão de estoques, armazenagem, suprimentos, cadeia logística e modais de distribuição.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 09: Contabilidade -->
+          <article class="course-card" onclick="abrirTecnicoModal('Contabilidade', '1000h', '12 a 14 meses', 'Escrituração contábil, cálculos tributários, folha de pagamento, balanço patrimonial, legislação fiscal e custos empresariais.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Contabilidade', '1000h', '12 a 14 meses', 'Escrituração contábil, cálculos tributários, folha de pagamento, balanço patrimonial, legislação fiscal e custos empresariais.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-admin" title="Contabilidade">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                    <line x1="8" y1="6" x2="16" y2="6"></line>
+                    <line x1="16" y1="14" x2="16" y2="18"></line>
+                    <path d="M16 10h.01"></path>
+                    <path d="M12 10h.01"></path>
+                    <path d="M8 10h.01"></path>
+                    <path d="M12 14h.01"></path>
+                    <path d="M8 14h.01"></path>
+                    <path d="M12 18h.01"></path>
+                    <path d="M8 18h.01"></path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">09</span>
+                  <span class="card-badge badge-workload">1000h</span>
+                  <h3 class="card-title">Contabilidade</h3>
+                </div>
+              </div>
+              <p class="card-summary">Escrituração contábil, tributação, balancetes, folha de pagamento e auditoria fiscal.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 10: Nutrição e Dietética -->
+          <article class="course-card" onclick="abrirTecnicoModal('Nutrição e Dietética', '1440h', '12 a 14 meses', 'Planejamento e supervisão do preparo de dietas, controle de qualidade higiênico-sanitário, nutrição clínica e unidades de alimentação e nutrição.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Nutrição e Dietética', '1440h', '12 a 14 meses', 'Planejamento e supervisão do preparo de dietas, controle de qualidade higiênico-sanitário, nutrição clínica e unidades de alimentação e nutrição.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-health" title="Nutrição e Dietética">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 20.94c1.5 0 2.75-.75 4-1.5 1.5-.9 3-1.44 3-3.44a7 7 0 0 0-7-7 7 7 0 0 0-7 7c0 2 1.5 2.54 3 3.44 1.25.75 2.5 1.5 4 1.5Z"></path>
+                    <path d="M12 9a4 4 0 0 1 4-4"></path>
+                    <path d="M12 5V2"></path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">10</span>
+                  <span class="card-badge badge-workload">1440h</span>
+                  <h3 class="card-title">Nutrição e Dietética</h3>
+                </div>
+              </div>
+              <p class="card-summary">Cardápios balanceados, controle de qualidade de alimentos, boas práticas e segurança alimentar.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 11: Secretaria Escolar -->
+          <article class="course-card" onclick="abrirTecnicoModal('Secretaria Escolar', '1000h', '12 a 14 meses', 'Gestão de documentação escolar, matrículas, transferências, expedição de diplomas, legislação de ensino e rotinas administrativas educacionais.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Secretaria Escolar', '1000h', '12 a 14 meses', 'Gestão de documentação escolar, matrículas, transferências, expedição de diplomas, legislação de ensino e rotinas administrativas educacionais.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-admin" title="Secretaria Escolar">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <line x1="10" y1="9" x2="8" y2="9"></line>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">11</span>
+                  <span class="card-badge badge-workload">1000h</span>
+                  <h3 class="card-title">Secretaria Escolar</h3>
+                </div>
+              </div>
+              <p class="card-summary">Gestão de arquivos escolares, registros de notas, legislação educacional e atendimento acadêmico.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 12: Recursos Humanos -->
+          <article class="course-card" onclick="abrirTecnicoModal('Recursos Humanos', '1000h', '12 a 14 meses', 'Processos de recrutamento, seleção, treinamento e desenvolvimento de pessoas, relações sindicais, folha e gestão do clima corporativo.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Recursos Humanos', '1000h', '12 a 14 meses', 'Processos de recrutamento, seleção, treinamento e desenvolvimento de pessoas, relações sindicais, folha e gestão do clima corporativo.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-admin" title="Recursos Humanos">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">12</span>
+                  <span class="card-badge badge-workload">1000h</span>
+                  <h3 class="card-title">Recursos Humanos</h3>
+                </div>
+              </div>
+              <p class="card-summary">Recrutamento, seleção, treinamento, folha de pagamento e gestão de pessoas em organizações.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 13: Marketing e Comunicação -->
+          <article class="course-card" onclick="abrirTecnicoModal('Marketing e Comunicação', '1000h', '12 a 14 meses', 'Elaboração de planos de comunicação, campanhas em redes sociais, inbound marketing, pesquisa de mercado e fortalecimento de marcas.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Marketing e Comunicação', '1000h', '12 a 14 meses', 'Elaboração de planos de comunicação, campanhas em redes sociais, inbound marketing, pesquisa de mercado e fortalecimento de marcas.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-marketing" title="Marketing e Comunicação">
+                  <svg viewBox="0 0 24 24">
+                    <path d="m3 11 18-5v12L3 13v-2z"></path>
+                    <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">13</span>
+                  <span class="card-badge badge-workload">1000h</span>
+                  <h3 class="card-title">Marketing e Comunicação</h3>
+                </div>
+              </div>
+              <p class="card-summary">Estratégias de mercado, campanhas publicitárias, redes sociais e posicionamento de marcas.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 14: Informática -->
+          <article class="course-card" onclick="abrirTecnicoModal('Informática', '1260h', '12 a 14 meses', 'Formação técnica abrangente em sistemas computacionais, bancos de dados, fundamentos de redes, suporte técnico e aplicações corporativas.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Informática', '1260h', '12 a 14 meses', 'Formação técnica abrangente em sistemas computacionais, bancos de dados, fundamentos de redes, suporte técnico e aplicações corporativas.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-tech" title="Informática">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                    <path class="anim-screen-line" d="M6 7h9"></path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">14</span>
+                  <span class="card-badge badge-workload">1260h</span>
+                  <h3 class="card-title">Informática</h3>
+                </div>
+              </div>
+              <p class="card-summary">Sistemas operacionais, suporte avançado a usuários, aplicativos e fundamentos de infraestrutura.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 15: Vendas -->
+          <article class="course-card" onclick="abrirTecnicoModal('Vendas', '1000h', '12 a 14 meses', 'Técnicas modernas de negociação, vendas consultivas B2B e B2C, CRM, metas comerciais, fidelização e gestão de clientes.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Vendas', '1000h', '12 a 14 meses', 'Técnicas modernas de negociação, vendas consultivas B2B e B2C, CRM, metas comerciais, fidelização e gestão de clientes.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-sales" title="Vendas">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">15</span>
+                  <span class="card-badge badge-workload">1000h</span>
+                  <h3 class="card-title">Vendas</h3>
+                </div>
+              </div>
+              <p class="card-summary">Técnicas de negociação, atendimento de alta performance, prospecção e estratégias comerciais.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 16: Estética e Cosmetologia -->
+          <article class="course-card" onclick="abrirTecnicoModal('Estética e Cosmetologia', '1440h', '12 a 14 meses', 'Procedimentos estéticos faciais, corporais, recursos eletroterápicos, avaliação clínica da pele, cosmetologia avançada e biossegurança.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Estética e Cosmetologia', '1440h', '12 a 14 meses', 'Procedimentos estéticos faciais, corporais, recursos eletroterápicos, avaliação clínica da pele, cosmetologia avançada e biossegurança.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-beauty" title="Estética e Cosmetologia">
+                  <svg viewBox="0 0 24 24">
+                    <path class="anim-sparkle-main" d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"></path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">16</span>
+                  <span class="card-badge badge-workload">1440h</span>
+                  <h3 class="card-title">Estética e Cosmetologia</h3>
+                </div>
+              </div>
+              <p class="card-summary">Procedimentos estéticos faciais, corporais, terapias de beleza e cosmetologia aplicada.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 17: Transações Imobiliárias -->
+          <article class="course-card" onclick="abrirTecnicoModal('Transações Imobiliárias', '1200h', '12 a 14 meses', 'Formação técnica para obtenção do registro no CRECI: avaliação de imóveis, documentação cartorária, financiamentos e intermediação imobiliária.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Transações Imobiliárias', '1200h', '12 a 14 meses', 'Formação técnica para obtenção do registro no CRECI: avaliação de imóveis, documentação cartorária, financiamentos e intermediação imobiliária.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-realestate" title="Transações Imobiliárias">
+                  <svg viewBox="0 0 24 24">
+                    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">17</span>
+                  <span class="card-badge badge-workload">1200h</span>
+                  <h3 class="card-title">Transações Imobiliárias</h3>
+                </div>
+              </div>
+              <p class="card-summary">Intermediação na compra, venda e locação de imóveis, direito imobiliário e habilitação CRECI.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 18: Informática para Internet -->
+          <article class="course-card" onclick="abrirTecnicoModal('Informática para Internet', '1240h', '12 a 14 meses', 'Desenvolvimento de sites responsivos, portais web, arquitetura da informação, UX/UI básico, integração com APIs e ferramentas para web moderna.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Informática para Internet', '1240h', '12 a 14 meses', 'Desenvolvimento de sites responsivos, portais web, arquitetura da informação, UX/UI básico, integração com APIs e ferramentas para web moderna.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-tech" title="Informática para Internet">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">18</span>
+                  <span class="card-badge badge-workload">1240h</span>
+                  <h3 class="card-title">Informática para Internet</h3>
+                </div>
+              </div>
+              <p class="card-summary">Construção de sites responsivos, portais, arquitetura web, HTML, CSS e integração online.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 19: Guia de Turismo -->
+          <article class="course-card" onclick="abrirTecnicoModal('Guia de Turismo', '1000h', '12 a 14 meses', 'Habilitação profissional CADASTUR para condução de turistas em roteiros naturais, culturais e históricos, primeiros socorros e técnicas de guiamento.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Guia de Turismo', '1000h', '12 a 14 meses', 'Habilitação profissional CADASTUR para condução de turistas em roteiros naturais, culturais e históricos, primeiros socorros e técnicas de guiamento.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-tourism" title="Guia de Turismo">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">19</span>
+                  <span class="card-badge badge-workload">1000h</span>
+                  <h3 class="card-title">Guia de Turismo</h3>
+                </div>
+              </div>
+              <p class="card-summary">Condução de roteiros regionais e nacionais, patrimônio cultural, histórico e hospitalidade.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 20: Serviços Jurídicos -->
+          <article class="course-card" onclick="abrirTecnicoModal('Serviços Jurídicos', '1440h', '12 a 14 meses', 'Assistência a advogados, rotinas forenses e de cartórios, acompanhamento de processos judiciais, redação jurídica e mediação de conflitos.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Serviços Jurídicos', '1440h', '12 a 14 meses', 'Assistência a advogados, rotinas forenses e de cartórios, acompanhamento de processos judiciais, redação jurídica e mediação de conflitos.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-law" title="Serviços Jurídicos">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 3v18"></path>
+                    <path d="m3 7 9-2 9 2"></path>
+                    <path d="M6 7l-3 6h6l-3-6z"></path>
+                    <path d="M18 7l-3 6h6l-3-6z"></path>
+                    <path d="M8 21h8"></path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">20</span>
+                  <span class="card-badge badge-workload">1440h</span>
+                  <h3 class="card-title">Serviços Jurídicos</h3>
+                </div>
+              </div>
+              <p class="card-summary">Apoio a escritórios de advocacia, rotinas forenses, redação de peças e trâmites de cartório.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 21: Redes de Computadores -->
+          <article class="course-card" onclick="abrirTecnicoModal('Redes de Computadores', '1200h', '12 a 14 meses', 'Implementação e suporte de infraestrutura de rede cabeada e sem fio, configuração de switches, roteadores, firewalls e servidores Linux/Windows.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Redes de Computadores', '1200h', '12 a 14 meses', 'Implementação e suporte de infraestrutura de rede cabeada e sem fio, configuração de switches, roteadores, firewalls e servidores Linux/Windows.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-network" title="Redes de Computadores">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="2" y="2" width="6" height="6" rx="1"></rect>
+                    <rect x="16" y="2" width="6" height="6" rx="1"></rect>
+                    <rect x="9" y="16" width="6" height="6" rx="1"></rect>
+                    <path d="M5 8v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8"></path>
+                    <path d="M12 13v3"></path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">21</span>
+                  <span class="card-badge badge-workload">1200h</span>
+                  <h3 class="card-title">Redes de Computadores</h3>
+                </div>
+              </div>
+              <p class="card-summary">Instalação de servidores, cabeamento estruturado, roteamento, switches e segurança de rede.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 22: Eletroeletrônica -->
+          <article class="course-card" onclick="abrirTecnicoModal('Eletroeletrônica', '1440h', '12 a 14 meses', 'Conexão entre sistemas elétricos de potência e eletrônica embarcada: fontes chaveadas, inversores, placas eletrônicas e instalações mistas.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Eletroeletrônica', '1440h', '12 a 14 meses', 'Conexão entre sistemas elétricos de potência e eletrônica embarcada: fontes chaveadas, inversores, placas eletrônicas e instalações mistas.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-electric" title="Eletroeletrônica">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 2v6"></path>
+                    <path d="M9 2v4"></path>
+                    <path d="M15 2v4"></path>
+                    <rect x="6" y="8" width="12" height="6" rx="2"></rect>
+                    <path d="M12 14v8"></path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">22</span>
+                  <span class="card-badge badge-workload">1440h</span>
+                  <h3 class="card-title">Eletroeletrônica</h3>
+                </div>
+              </div>
+              <p class="card-summary">Integração entre sistemas elétricos de potência e comandos eletrônicos avançados.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 23: Manut. e Sup. p/ Informática -->
+          <article class="course-card" onclick="abrirTecnicoModal('Manutenção e Suporte em Informática', '1440h', '12 a 14 meses', 'Diagnóstico e reparo avançado de computadores e notebooks, substituição de peças, instalação de SOs, recuperação de dados e atendimento helpdesk.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Manutenção e Suporte em Informática', '1440h', '12 a 14 meses', 'Diagnóstico e reparo avançado de computadores e notebooks, substituição de peças, instalação de SOs, recuperação de dados e atendimento helpdesk.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-tech" title="Manut. e Sup. p/ Informática">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">23</span>
+                  <span class="card-badge badge-workload">1440h</span>
+                  <h3 class="card-title">Manut. e Sup. p/ Informática</h3>
+                </div>
+              </div>
+              <p class="card-summary">Diagnóstico de hardware, montagem de computadores, formatação e suporte técnico presencial e remoto.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 24: Programação de Jogos Digitais -->
+          <article class="course-card" onclick="abrirTecnicoModal('Programação de Jogos Digitais', '1440h', '12 a 14 meses', 'Desenvolvimento de jogos 2D e 3D, lógica de programação para games, engines populares, inteligência artificial em jogos e publicação.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Programação de Jogos Digitais', '1440h', '12 a 14 meses', 'Desenvolvimento de jogos 2D e 3D, lógica de programação para games, engines populares, inteligência artificial em jogos e publicação.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-games" title="Programação de Jogos Digitais">
+                  <svg viewBox="0 0 24 24">
+                    <line x1="6" y1="12" x2="10" y2="12"></line>
+                    <line x1="8" y1="10" x2="8" y2="14"></line>
+                    <line x1="15" y1="13" x2="15.01" y2="13"></line>
+                    <line x1="18" y1="11" x2="18.01" y2="11"></line>
+                    <rect x="2" y="6" width="20" height="12" rx="6"></rect>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">24</span>
+                  <span class="card-badge badge-workload">1440h</span>
+                  <h3 class="card-title">Programação de Jogos Digitais</h3>
+                </div>
+              </div>
+              <p class="card-summary">Criação de jogos 2D/3D, engines gráficas, lógica de programação, física e gameplay.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 25: Computação Gráfica -->
+          <article class="course-card" onclick="abrirTecnicoModal('Computação Gráfica', '1200h', '12 a 14 meses', 'Modelagem 3D, computação visual, pós-produção audiovisual, animação digital, concept art e renderização para mídias digitais.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Computação Gráfica', '1200h', '12 a 14 meses', 'Modelagem 3D, computação visual, pós-produção audiovisual, animação digital, concept art e renderização para mídias digitais.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-design" title="Computação Gráfica">
+                  <svg viewBox="0 0 24 24">
+                    <path d="m12 19 7-7 3 3-7 7-3-3z"></path>
+                    <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                    <path d="m2 2 7.586 7.586"></path>
+                    <circle cx="11" cy="11" r="2"></circle>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">25</span>
+                  <span class="card-badge badge-workload">1200h</span>
+                  <h3 class="card-title">Computação Gráfica</h3>
+                </div>
+              </div>
+              <p class="card-summary">Modelagem 3D, animação, edição audiovisual, efeitos visuais e ilustração digital.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Técnico 26: Desenvolvimento de Sistemas -->
+          <article class="course-card" onclick="abrirTecnicoModal('Desenvolvimento de Sistemas', '1440h', '12 a 14 meses', 'Engenharia de software, programação front-end, back-end, modelagem de banco de dados, APIs RESTful, versionamento Git e aplicações completas.', this)" role="button" tabindex="0" onkeydown="handleTecnicoKey(event, 'Desenvolvimento de Sistemas', '1440h', '12 a 14 meses', 'Engenharia de software, programação front-end, back-end, modelagem de banco de dados, APIs RESTful, versionamento Git e aplicações completas.')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-code" title="Desenvolvimento de Sistemas">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                    <line class="anim-code-cursor" x1="10" y1="19" x2="14" y2="5"></line>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-tecnico-num">26</span>
+                  <span class="card-badge badge-workload">1440h</span>
+                  <h3 class="card-title">Desenvolvimento de Sistemas</h3>
+                </div>
+              </div>
+              <p class="card-summary">Programação de software, bancos de dados, APIs, back-end, front-end e mobile.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 a 14 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- LINHA DIVISÓRIA -->
+      <hr class="courses-area-divider">
+
+      <!-- ================= ÁREA 2: CURSOS PROFISSIONALIZANTES ================= -->
+      <div class="courses-area" id="cursos-profissionalizantes">
+        <div class="section-header">
+          <span class="section-tag tag-profissional">Qualificação Rápida & Prática</span>
+          <h2 class="section-title">Cursos Profissionalizantes</h2>
+          <p class="section-desc">Capacitação ágil para ingressar ou crescer no mercado de trabalho e impulsionar suas
+            oportunidades.</p>
+        </div>
+
+        <div class="courses-grid">
+
+          <!-- Profissionalizante 1: Informática Básica e Avançada -->
+          <article class="course-card" onclick="abrirCurso('info', this)" role="button" tabindex="0"
+            onkeydown="handleCardKey(event, 'info')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-tech" title="Informática Básica e Avançada">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                    <path class="anim-screen-line" d="M6 7h9"></path>
+                    <path d="M6 11h4"></path>
+                    <line class="anim-code-cursor" x1="11" y1="11" x2="14" y2="11" stroke-width="2.5"></line>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-highlight">100% Presencial</span>
+                  <h3 class="card-title">Informática Básica e Avançada</h3>
+                </div>
+              </div>
+              <p class="card-summary">Mais de 20 cursos práticos: Windows, Office, Redes, I.A, Robótica, Arduino e
+                Manutenção.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 12 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Profissionalizante 2: Eletricista -->
+          <article class="course-card" onclick="abrirCurso('elec', this)" role="button" tabindex="0"
+            onkeydown="handleCardKey(event, 'elec')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-electric" title="Eletricista Predial & Residencial">
+                  <svg viewBox="0 0 24 24">
+                    <polygon class="anim-lightning" points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-highlight">Salas Temáticas</span>
+                  <h3 class="card-title">Eletricista Predial & Residencial</h3>
+                </div>
+              </div>
+              <p class="card-summary">Instalações elétricas na prática, segurança (NR10 conceitos), componentes e
+                reparos.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 4 Semanas</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Profissionalizante 3: Máquinas Pesadas -->
+          <article class="course-card" onclick="abrirCurso('maq', this)" role="button" tabindex="0"
+            onkeydown="handleCardKey(event, 'maq')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-machinery" title="Máquinas Pesadas">
+                  <svg viewBox="0 0 24 24">
+                    <g class="anim-gear-spin">
+                      <circle cx="12" cy="12" r="3"></circle>
+                      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge">+18 anos</span>
+                  <h3 class="card-title">Máquinas Pesadas</h3>
+                </div>
+              </div>
+              <p class="card-summary">Treinamento intensivo: Operador de Escavadeira, Retroescavadeira e Pá
+                Carregadeira.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 4 Semanas</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Profissionalizante 1: Administrativo -->
+          <article class="course-card" onclick="abrirCurso('adm', this)" role="button" tabindex="0"
+            onkeydown="handleCardKey(event, 'adm')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-admin" title="Pacote Administrativo">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    <line class="anim-bar-1" x1="6" y1="18" x2="6" y2="12" stroke-width="2.5"></line>
+                    <line class="anim-bar-2" x1="12" y1="18" x2="12" y2="10" stroke-width="2.5"></line>
+                    <line class="anim-bar-3" x1="18" y1="18" x2="18" y2="13" stroke-width="2.5"></line>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-highlight">100% Presencial</span>
+                  <h3 class="card-title">Pacote Administrativo</h3>
+                </div>
+              </div>
+              <p class="card-summary">14 cursos: Assistente Administrativo, RH, Oratória, Contabilidade, Gestão e
+                Marketing Digital.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 10 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Profissionalizante 2: Saúde -->
+          <article class="course-card" onclick="abrirCurso('saude', this)" role="button" tabindex="0"
+            onkeydown="handleCardKey(event, 'saude')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-health" title="Pacote de Saúde">
+                  <svg viewBox="0 0 24 24">
+                    <g class="anim-heart-beat">
+                      <path
+                        d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
+                      </path>
+                      <path d="M12 8v8"></path>
+                      <path d="M8 12h8"></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-highlight">100% Presencial</span>
+                  <h3 class="card-title">Pacote de Saúde</h3>
+                </div>
+              </div>
+              <p class="card-summary">14 cursos essenciais: Farmácia, Injetáveis, Primeiros Socorros, Radiologia e
+                Cuidados de Idosos.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 10 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Profissionalizante 3: Beleza -->
+          <article class="course-card" onclick="abrirCurso('blz', this)" role="button" tabindex="0"
+            onkeydown="handleCardKey(event, 'blz')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-beauty" title="Pacote de Beleza">
+                  <svg viewBox="0 0 24 24">
+                    <path class="anim-sparkle-main"
+                      d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z">
+                    </path>
+                    <path class="anim-sparkle-sub" d="M5 3v4"></path>
+                    <path class="anim-sparkle-sub" d="M19 17v4"></path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-highlight">100% Presencial</span>
+                  <h3 class="card-title">Pacote de Beleza</h3>
+                </div>
+              </div>
+              <p class="card-summary">08 cursos práticos: Estética Facial e Corporal, Massoterapia, Reflexologia e
+                Depilação.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 07 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Profissionalizante 4: Veterinária -->
+          <article class="course-card" onclick="abrirCurso('pet', this)" role="button" tabindex="0"
+            onkeydown="handleCardKey(event, 'pet')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-vet" title="Pacote de Veterinária">
+                  <svg viewBox="0 0 24 24">
+                    <g class="anim-paw-tap">
+                      <circle cx="12" cy="16" r="3.5"></circle>
+                      <circle cx="7" cy="11.5" r="2"></circle>
+                      <circle cx="17" cy="11.5" r="2"></circle>
+                      <circle cx="9.5" cy="6.5" r="1.8"></circle>
+                      <circle cx="14.5" cy="6.5" r="1.8"></circle>
+                    </g>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-highlight">100% Presencial</span>
+                  <h3 class="card-title">Pacote de Veterinária</h3>
+                </div>
+              </div>
+              <p class="card-summary">07 cursos: Auxiliar de Veterinária, Pet Shop, Saúde Animal, Vacinação e
+                Procedimentos.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 07 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Profissionalizante 5: Turismo -->
+          <article class="course-card" onclick="abrirCurso('turi', this)" role="button" tabindex="0"
+            onkeydown="handleCardKey(event, 'turi')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-tourism" title="Pacote de Turismo">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polygon class="anim-compass-needle" points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge badge-highlight">100% Presencial</span>
+                  <h3 class="card-title">Pacote de Turismo</h3>
+                </div>
+              </div>
+              <p class="card-summary">06 cursos: Guia de Turismo Local, Agenciamento, Marketing, Inglês e Espanhol
+                Básicos.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 07 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Profissionalizante 6: KIDS -->
+          <article class="course-card" onclick="abrirCurso('kids', this)" role="button" tabindex="0"
+            onkeydown="handleCardKey(event, 'kids')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-kids" title="Pacote KIDS">
+                  <svg viewBox="0 0 24 24">
+                    <g class="anim-rocket-body">
+                      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+                      </path>
+                      <path
+                        d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+                      </path>
+                      <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                      <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                      <polygon class="anim-flame" points="3 21 6 18 3 17 2 20" fill="currentColor"></polygon>
+                    </g>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge">Especial Jovens</span>
+                  <h3 class="card-title">Pacote KIDS</h3>
+                </div>
+              </div>
+              <p class="card-summary">Formação completa infanto-juvenil: Informática, Inglês Básico Dinâmico e Natação
+                segura.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 20 meses</span>
+              <span class="action-btn">Ver grade →</span>
+            </div>
+          </article>
+
+          <!-- Profissionalizante 7: Natação -->
+          <article class="course-card" onclick="abrirCurso('nat', this)" role="button" tabindex="0"
+            onkeydown="handleCardKey(event, 'nat')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-swim" title="Natação">
+                  <svg viewBox="0 0 24 24">
+                    <path class="anim-wave-1" d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1">
+                    </path>
+                    <path class="anim-wave-2" d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1">
+                    </path>
+                    <path class="anim-wave-1" d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1">
+                    </path>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge">Todas as Idades</span>
+                  <h3 class="card-title">Natação</h3>
+                </div>
+              </div>
+              <p class="card-summary">Aulas práticas de condicionamento, segurança aquática e técnicas de nado nos
+                turnos manhã, tarde e noite.</p>
+            </div>
+            <div class="card-action">
+              <span>Horários flexíveis</span>
+              <span class="action-btn">Ver horários →</span>
+            </div>
+          </article>
+
+          <!-- Profissionalizante 8: EJA -->
+          <article class="course-card" onclick="abrirCurso('eja', this)" role="button" tabindex="0"
+            onkeydown="handleCardKey(event, 'eja')">
+            <div>
+              <div class="card-top">
+                <div class="card-icon-box icon-eja" title="EJA - Educação de Jovens e Adultos">
+                  <svg viewBox="0 0 24 24">
+                    <g class="anim-cap-float">
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                      <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="card-meta">
+                  <span class="card-badge" style="background:#FEF3C7; color:#B45309;">100% EAD</span>
+                  <h3 class="card-title">EJA - Educação de Jovens e Adultos</h3>
+                </div>
+              </div>
+              <p class="card-summary">Conclua seus estudos no seu ritmo! Plataforma online moderna com fornecimento de
+                internet no polo.</p>
+            </div>
+            <div class="card-action">
+              <span>Duração: 04 Meses</span>
+              <span class="action-btn">Ver módulos →</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      </div><!-- /.courses-inner -->
+    </section>
+
+    <!-- ================= SEÇÃO EDITORIAL INSTITUCIONAL (VARIAÇÃO DE COMPOSIÇÃO) ================= -->
+    <section class="institutional-editorial-section" id="sobre-ibem">
+      <div class="editorial-container">
+        
+        <!-- Bloco de Texto Institucional e Credenciais -->
+        <div class="editorial-main-content">
+          <span class="editorial-header-tag">Compromisso Acadêmico & Empregabilidade</span>
+          <h2 class="editorial-title">Tradição em ensino técnico e qualificação com aplicação real.</h2>
+          <p class="editorial-text">
+            O IBEM (Instituto Brasileiro de Educação Moderna) foi estruturado para suprir a lacuna entre o ensino convencional e as exigências dinâmicas do mercado de trabalho. Nossos programas acadêmicos e técnicos são orientados por matrizes curriculares alinhadas aos padrões dos órgãos reguladores, garantindo aos alunos domínio prático e certificação de valor comprovado.
+          </p>
+          <ul class="editorial-credentials-list">
+            <li class="editorial-credential-item">
+              <div class="credential-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div class="credential-content">
+                <strong>Metodologia Aplicada à Rotina Empresarial</strong>
+                <span>Aulas que simulam cenários corporativos e industriais autênticos, desenvolvendo autonomia e precisão técnica.</span>
+              </div>
+            </li>
+            <li class="editorial-credential-item">
+              <div class="credential-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </div>
+              <div class="credential-content">
+                <strong>Certificação e Diplomas Válidos no Brasil</strong>
+                <span>Documentação oficial aceita para registros em conselhos de classe, processos seletivos públicos e empresas privadas.</span>
+              </div>
+            </li>
+            <li class="editorial-credential-item">
+              <div class="credential-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div class="credential-content">
+                <strong>Acompanhamento e Encaminhamento Profissional</strong>
+                <span>Apoio direto ao aluno na elaboração do currículo e direcionamento a oportunidades em empresas conveniadas.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bloco de Destaque / Quadro Institucional -->
+        <div class="editorial-aside">
+          <div class="editorial-card-highlight">
+            <span class="highlight-pre">Credenciamento & Atuação</span>
+            <h3 class="highlight-title">Estrutura preparada para impulsionar a sua carreira técnica</h3>
+            <p class="highlight-desc">
+              Com polos físicos equipados e plataforma digital de alta disponibilidade, o IBEM atende desde estudantes em início de formação até profissionais em busca de reciclagem ou ascensão funcional.
+            </p>
+            <div class="highlight-metrics-grid">
+              <div class="metric-box">
+                <span class="metric-box-num">26</span>
+                <span class="metric-box-label">Cursos Técnicos Homologados</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-box-num">12</span>
+                <span class="metric-box-label">Formações Profissionalizantes</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-box-num">100%</span>
+                <span class="metric-box-label">Validade em Território Nacional</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-box-num">2026</span>
+                <span class="metric-box-label">Turmas Vigentes Abertas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= PILARES INSTITUCIONAIS (DIFERENCIAIS) ================= -->
+    <section class="diferenciais-section" id="diferenciais">
+      <div class="diferenciais-inner">
+        <div class="section-header text-center">
+          <span class="section-tag tag-tecnico">Pilares da Instituição</span>
+          <h2 class="section-title">Por que se capacitar no IBEM?</h2>
+          <p class="section-desc">Combinamos metodologia ativa, infraestrutura especializada e suporte acadêmico permanente para que sua qualificação resulte em oportunidades reais.</p>
+        </div>
+
+        <div class="diferenciais-grid">
+          <div class="diferencial-card">
+            <div class="diferencial-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+              </svg>
+            </div>
+            <h3>Metodologia 100% Prática</h3>
+            <p>Conteúdo pragmático com exercícios, práticas em bancadas e simulação dos procedimentos exigidos no cotidiano técnico.</p>
+          </div>
+
+          <div class="diferencial-card">
+            <div class="diferencial-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="6"></circle>
+                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+              </svg>
+            </div>
+            <h3>Certificação Reconhecida no Brasil</h3>
+            <p>Diplomas e certificados emitidos sob respaldo legal e regulamentar, amplamente aceitos em empresas e concursos.</p>
+          </div>
+
+          <div class="diferencial-card">
+            <div class="diferencial-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3>Laboratórios Climatizados</h3>
+            <p>Infraestrutura moderna com computadores atualizados, maquinários reais, ferramentas técnicas e bancadas estruturadas.</p>
+          </div>
+
+          <div class="diferencial-card">
+            <div class="diferencial-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </div>
+            <h3>Encaminhamento ao Emprego</h3>
+            <p>Apoio à inserção no mercado de trabalho, orientação de carreira e ponte com oportunidades corporativas parceiras.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RODAPÉ INSTITUCIONAL PROFISSIONAL ================= -->
+    <footer class="main-footer" id="contato">
+      <div class="footer-top">
+        <div class="footer-col-brand">
+          <h3>IBEM - Instituto Brasileiro de Educação Moderna</h3>
+          <p>Compromisso com o aprendizado prático, qualificação acessível e desenvolvimento técnico de excelência para o mercado produtivo.</p>
+          <p style="margin-top: 14px; font-style: italic; color: #7DD3FC; font-size: 0.9rem;">"Pensou em cursos, pense bem. Faça <strong>IBEM</strong>!"</p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Programas Acadêmicos</h4>
+          <ul class="footer-links">
+            <li><a href="#cursos-tecnicos">Cursos Técnicos (12 a 14 meses)</a></li>
+            <li><a href="#cursos-profissionalizantes">Cursos Profissionalizantes</a></li>
+            <li><a href="#cursos">Modalidade Presencial & EAD</a></li>
+            <li><a href="#sobre-ibem">Sobre o Instituto</a></li>
+            <li><a href="#diferenciais">Diferenciais e Metodologia</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Secretaria & Atendimento</h4>
+          <ul class="footer-links">
+            <li><span>📍 Secretaria Acadêmica Presencial</span></li>
+            <li><span>🕒 Segunda a Sexta: 07h às 21h</span></li>
+            <li><span>🕒 Sábados: 07h às 17h</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Acesso Institucional</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="abrirLogin()">Portal do Aluno (SGA)</a></li>
+            <li><a href="javascript:void(0)" onclick="abrirLogin()">Área do Professor</a></li>
+            <li><a href="javascript:void(0)" onclick="abrirLogin()">Acesso da Coordenação</a></li>
+            <li><span>🔒 Ambiente Criptografado & Seguro</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 IBEM - Instituto Brasileiro de Educação Moderna. Todos os direitos reservados.
+        </div>
+        <div class="footer-security-badge">
+          <span>🛡️ Ambiente Institucional Seguro • Certificação Oficial</span>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ================= POPUPS / MODAIS DE CURSOS ================= -->
+
+  <!-- POPUP: LOGIN ALUNO -->
+  <div id="loginPopup" class="popup" onclick="fecharAoClicarFora(event, 'loginPopup')">
+    <div class="popup-container">
+      <div class="popup-content">
+        <div class="modal-header" style="text-align:center;">
+          <img src="assets/img/logo.png" alt="Logotipo IBEM" width="76" height="76" style="width:76px; height:76px; margin:0 auto 12px auto; display:block; object-fit:contain;">
+          <h2>Portal Institucional IBEM</h2>
+          <p class="modal-subtitle">Acesso de Alunos, Professores e Administradores</p>
+          <button type="button" class="modal-close-icon" onclick="fecharLogin()" title="Fechar">&times;</button>
+        </div>
+        <div class="modal-body">
+          <?php if (isset($_GET['erro'])): ?>
+            <div style="background:#FEE2E2; color:#B91C1C; border:1px solid #FECACA; padding:10px 14px; border-radius:8px; font-size:0.85rem; margin-bottom:14px; font-weight:500;">
+              <?php if ($_GET['erro'] == '1'): ?>
+                ⚠️ E-mail ou senha incorretos. Por favor, tente novamente.
+              <?php elseif ($_GET['erro'] == 'restrito'): ?>
+                🔒 Acesso restrito. Faça login com uma conta de Administrador.
+              <?php else: ?>
+                ⚠️ Ocorreu um erro ao efetuar login.
+              <?php endif; ?>
+            </div>
+          <?php endif; ?>
+          <div id="loginErroMensagem" style="display:none; background:#FEE2E2; color:#B91C1C; border:1px solid #FECACA; padding:10px 14px; border-radius:8px; font-size:0.85rem; margin-bottom:14px; font-weight:500;"></div>
+
+          <form action="portal/login.php" method="POST" onsubmit="return tratarLogin(event)" class="login-form">
+            <div class="form-group">
+              <label for="loginEmail">E-mail de acesso:</label>
+              <input type="email" id="loginEmail" name="email" class="form-input" placeholder="seuemail@exemplo.com"
+                required>
+            </div>
+            <div class="form-group">
+              <label for="loginSenha">Senha:</label>
+              <input type="password" id="loginSenha" name="senha" class="form-input" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn-login-submit">Entrar no Portal</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close-modal" onclick="fecharLogin()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: MODAL TÉCNICO INTERATIVO -->
+  <div id="modalTecnico" class="popup" onclick="fecharAoClicarFora(event, 'modalTecnico')">
+    <div class="popup-container">
+      <div class="popup-content">
+        <div class="modal-header">
+          <h2 id="modalTecnicoTitulo">Nome do Curso Técnico</h2>
+          <p class="modal-subtitle" id="modalTecnicoSub">Formação Técnica Profissionalizante - IBEM</p>
+          <button type="button" class="modal-close-icon" onclick="fecharCurso('modalTecnico')" title="Fechar">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-info-bar">
+            <div class="info-item">Carga Horária: <span id="modalTecnicoCarga">1440h</span></div>
+            <div class="info-item">Duração: <span id="modalTecnicoDuracao">12 a 14 meses</span></div>
+            <div class="info-item">Modalidade: <span>Presencial / EAD</span></div>
+            <div class="info-item">Certificação: <span>Diploma Técnico Nacional</span></div>
+          </div>
+
+          <h4 class="modal-section-title">Sobre a Habilitação Técnica</h4>
+          <p id="modalTecnicoDesc">Descrição da habilitação técnica profissionalizante.</p>
+
+          <h4 class="modal-section-title">Diferenciais da Formação no IBEM</h4>
+          <ul class="curriculum-list">
+            <li>Diploma de Técnico de Nível Médio reconhecido em todo o Brasil</li>
+            <li>Aulas práticas em laboratórios estruturados e salas temáticas preparadas</li>
+            <li>Professores com ampla experiência de mercado e atuação prática</li>
+            <li>Encaminhamento para oportunidades de estágio e banco de empregos parceiros</li>
+            <li>Material didático atualizado conforme diretrizes curriculares nacionais e do MEC</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close-modal" onclick="fecharCurso('modalTecnico')">Fechar</button>
+          <a href="matricula.html" class="btn-modal-action">Quero me matricular</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: INFORMÁTICA -->
+  <div id="info" class="popup" onclick="fecharAoClicarFora(event, 'info')">
+    <div class="popup-container">
+      <div class="popup-content">
+        <div class="modal-header">
+          <h2>Informática Básica e Avançada</h2>
+          <p class="modal-subtitle">Mais de 20 cursos 100% presenciais e práticos</p>
+          <button type="button" class="modal-close-icon" onclick="fecharCurso('info')">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-info-bar">
+            <div class="info-item">Matrícula: <span>R$ 50,00</span></div>
+            <div class="info-item">Duração: <span>12 meses</span></div>
+            <div class="info-item">Formato: <span>2x por semana (Manhã, Tarde ou Noite)</span></div>
+          </div>
+
+          <h4 class="modal-section-title">Turmas Disponíveis</h4>
+          <p><strong>Turma 1 (Seg e Qua):</strong> 07h-09h | 09h-11h | 13h-15h | 15h-17h | 19h-21h</p>
+          <p><strong>Turma 2 (Ter e Qui):</strong> 07h-09h | 09h-11h | 13h-15h | 15h-17h | 19h-21h</p>
+          <p><strong>Turma 3 (Sexta):</strong> 07h às 11h | 13h às 17h</p>
+          <p><strong>Turma 4 (Sábado):</strong> 07h às 11h | 13h às 17h</p>
+
+          <h4 class="modal-section-title">Conteúdo Programático - Básica</h4>
+          <ul class="curriculum-list">
+            <li>Fundamentos da Tecnologia</li>
+            <li>Coordenação Motora e Digitação</li>
+            <li>Word Básico</li>
+            <li>Excel Básico</li>
+            <li>PowerPoint Básico</li>
+            <li>Introdução à Internet</li>
+            <li>Microsoft Access</li>
+            <li>Microsoft Outlook</li>
+          </ul>
+
+          <h4 class="modal-section-title">Conteúdo Programático - Avançada & Tecnologias</h4>
+          <ul class="curriculum-list">
+            <li>Documentos Avançados no Word</li>
+            <li>Excel para Empresas</li>
+            <li>PowerPoint Profissional</li>
+            <li>Navegação Web e Prompt de Comandos</li>
+            <li>Configuração de Roteadores & Redes</li>
+            <li>Solda de Componentes Eletrônicos</li>
+            <li>Montagem e Manutenção de Computadores</li>
+            <li>Photoshop Básico</li>
+            <li>Sketchup 3D</li>
+            <li>Edição de Vídeo</li>
+            <li>Ferramentas de I.A (Inteligência Artificial)</li>
+            <li>Robótica & Arduino</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close-modal" onclick="fecharCurso('info')">Fechar</button>
+          <a href="matricula.html" class="btn-modal-action">Quero me matricular</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: ADMINISTRATIVO -->
+  <div id="adm" class="popup" onclick="fecharAoClicarFora(event, 'adm')">
+    <div class="popup-container">
+      <div class="popup-content">
+        <div class="modal-header">
+          <h2>Pacote Administrativo</h2>
+          <p class="modal-subtitle">14 cursos 100% presenciais voltados para gestão</p>
+          <button type="button" class="modal-close-icon" onclick="fecharCurso('adm')">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-info-bar">
+            <div class="info-item">Matrícula: <span>R$ 50,00</span></div>
+            <div class="info-item">Duração: <span>10 meses</span></div>
+          </div>
+          <h4 class="modal-section-title">Horários</h4>
+          <p>• Segunda e Quarta: 19h às 21h<br>• Sábado: 07h às 11h</p>
+
+          <h4 class="modal-section-title">Disciplinas do Pacote</h4>
+          <ul class="curriculum-list">
+            <li>Recepcionista</li>
+            <li>Secretariado</li>
+            <li>Assistente Administrativo</li>
+            <li>Auxiliar Contábil</li>
+            <li>Oratória</li>
+            <li>Empreendedorismo</li>
+            <li>Introdução a RH</li>
+            <li>Gestão Comercial</li>
+            <li>Almoxarifado</li>
+            <li>Redação Empresarial</li>
+            <li>Comunicação Empresarial</li>
+            <li>LGPD na Prática</li>
+            <li>Marketing Digital</li>
+            <li>Apoio Administrativo</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close-modal" onclick="fecharCurso('adm')">Fechar</button>
+          <a href="matricula.html" class="btn-modal-action">Quero me matricular</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: SAÚDE -->
+  <div id="saude" class="popup" onclick="fecharAoClicarFora(event, 'saude')">
+    <div class="popup-container">
+      <div class="popup-content">
+        <div class="modal-header">
+          <h2>Pacote de Saúde</h2>
+          <p class="modal-subtitle">14 cursos práticos presenciais na área de saúde e bem-estar</p>
+          <button type="button" class="modal-close-icon" onclick="fecharCurso('saude')">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-info-bar">
+            <div class="info-item">Matrícula: <span>R$ 50,00</span></div>
+            <div class="info-item">Duração: <span>10 meses</span></div>
+          </div>
+          <h4 class="modal-section-title">Horários</h4>
+          <p>• Terça e Quinta: 19h às 21h<br>• Sábado: 13h às 17h</p>
+
+          <h4 class="modal-section-title">Disciplinas do Pacote</h4>
+          <ul class="curriculum-list">
+            <li>Farmácia & Balcão</li>
+            <li>Injetáveis</li>
+            <li>Primeiros Socorros</li>
+            <li>Prevenção IST</li>
+            <li>Urgência & Emergência</li>
+            <li>Agente de Saúde Comunitário</li>
+            <li>Cuidados com Idosos</li>
+            <li>Saúde Indígena</li>
+            <li>Saúde Mental</li>
+            <li>Saúde Pública</li>
+            <li>Noções de Radiologia</li>
+            <li>Rotinas CRAS e UBS</li>
+            <li>Gestão Hospitalar</li>
+            <li>Biossegurança</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close-modal" onclick="fecharCurso('saude')">Fechar</button>
+          <a href="matricula.html" class="btn-modal-action">Quero me matricular</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: KIDS -->
+  <div id="kids" class="popup" onclick="fecharAoClicarFora(event, 'kids')">
+    <div class="popup-container">
+      <div class="popup-content">
+        <div class="modal-header">
+          <h2>Pacote KIDS</h2>
+          <p class="modal-subtitle">20 cursos completos para formação infantil e juvenil</p>
+          <button type="button" class="modal-close-icon" onclick="fecharCurso('kids')">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-info-bar">
+            <div class="info-item">Matrícula: <span>R$ 50,00</span></div>
+            <div class="info-item">Duração: <span>20 meses</span></div>
+          </div>
+
+          <h4 class="modal-section-title">Informática Básica</h4>
+          <ul class="curriculum-list">
+            <li>Fundamentos da Tecnologia</li>
+            <li>Coordenação Motora e Digitação</li>
+            <li>Word Básico</li>
+            <li>Excel Básico</li>
+            <li>PowerPoint Básico</li>
+            <li>Uso Seguro da Internet</li>
+          </ul>
+
+          <h4 class="modal-section-title">Inglês Dinâmico</h4>
+          <ul class="curriculum-list">
+            <li>Cores, Números e Animais</li>
+            <li>Pronúncia do Alfabeto e Vogais</li>
+            <li>Fonética Básica</li>
+            <li>Dias, Semanas e Meses</li>
+            <li>Verbos Essenciais (To Be, To Have, To Like)</li>
+            <li>Frases e Diálogos do Dia a Dia</li>
+          </ul>
+
+          <h4 class="modal-section-title">Natação Infantil</h4>
+          <ul class="curriculum-list">
+            <li>Introdução segura e divertida no meio aquático</li>
+            <li>Desenvolvimento motor e confiança na água</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close-modal" onclick="fecharCurso('kids')">Fechar</button>
+          <a href="matricula.html" class="btn-modal-action">Quero me matricular</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: BELEZA -->
+  <div id="blz" class="popup" onclick="fecharAoClicarFora(event, 'blz')">
+    <div class="popup-container">
+      <div class="popup-content">
+        <div class="modal-header">
+          <h2>Pacote de Beleza</h2>
+          <p class="modal-subtitle">08 cursos práticos com foco em estética e atendimento</p>
+          <button type="button" class="modal-close-icon" onclick="fecharCurso('blz')">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-info-bar">
+            <div class="info-item">Matrícula: <span>R$ 50,00</span></div>
+            <div class="info-item">Duração: <span>07 meses</span></div>
+            <div class="info-item">Horário: <span>Sábado 13h às 17h (Vespertino)</span></div>
+          </div>
+          <h4 class="modal-section-title">Conteúdo</h4>
+          <ul class="curriculum-list">
+            <li>Estética Facial Feminina</li>
+            <li>Clareamento Banho de Lua</li>
+            <li>Estética Corporal</li>
+            <li>Reflexologia das Mãos</li>
+            <li>Massagem Corporal Básica</li>
+            <li>Massagem Facial Básica</li>
+            <li>Depilação Facial</li>
+            <li>Ética Profissional em Estética</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close-modal" onclick="fecharCurso('blz')">Fechar</button>
+          <a href="matricula.html" class="btn-modal-action">Quero me matricular</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: VETERINÁRIA -->
+  <div id="pet" class="popup" onclick="fecharAoClicarFora(event, 'pet')">
+    <div class="popup-container">
+      <div class="popup-content">
+        <div class="modal-header">
+          <h2>Pacote de Veterinária</h2>
+          <p class="modal-subtitle">07 cursos presenciais para atuar em clínicas e pet shops</p>
+          <button type="button" class="modal-close-icon" onclick="fecharCurso('pet')">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-info-bar">
+            <div class="info-item">Matrícula: <span>R$ 50,00</span></div>
+            <div class="info-item">Duração: <span>07 meses</span></div>
+            <div class="info-item">Horário: <span>Sábado 13h às 17h</span></div>
+          </div>
+          <h4 class="modal-section-title">Disciplinas do Pacote</h4>
+          <ul class="curriculum-list">
+            <li>Auxiliar de Veterinária e Pet Shop</li>
+            <li>Ética e Conduta Profissional</li>
+            <li>Conhecimento Básico em Saúde Animal</li>
+            <li>Administração de Medicamentos & Vacinas</li>
+            <li>Assistência em Procedimentos Clínicos</li>
+            <li>Atendimento ao Cliente e Vendas Pet</li>
+            <li>Biossegurança, Limpeza e Organização</li>
+            <li>Marketing e Divulgação de Serviços</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close-modal" onclick="fecharCurso('pet')">Fechar</button>
+          <a href="matricula.html" class="btn-modal-action">Quero me matricular</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: TURISMO -->
+  <div id="turi" class="popup" onclick="fecharAoClicarFora(event, 'turi')">
+    <div class="popup-container">
+      <div class="popup-content">
+        <div class="modal-header">
+          <h2>Pacote de Turismo</h2>
+          <p class="modal-subtitle">06 cursos com vivência prática no setor de turismo e hotelaria</p>
+          <button type="button" class="modal-close-icon" onclick="fecharCurso('turi')">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-info-bar">
+            <div class="info-item">Matrícula: <span>R$ 50,00</span></div>
+            <div class="info-item">Duração: <span>07 meses</span></div>
+            <div class="info-item">Horário: <span>Terça e Quinta 19h às 21h</span></div>
+          </div>
+          <h4 class="modal-section-title">Disciplinas</h4>
+          <ul class="curriculum-list">
+            <li>Marketing no Turismo</li>
+            <li>Turismo Cultural</li>
+            <li>Agente de Viagens e Turismo</li>
+            <li>Guia de Turismo Local</li>
+            <li>Inglês para Atendimento</li>
+            <li>Espanhol Básico</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close-modal" onclick="fecharCurso('turi')">Fechar</button>
+          <a href="matricula.html" class="btn-modal-action">Quero me matricular</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: MÁQUINAS PESADAS -->
+  <div id="maq" class="popup" onclick="fecharAoClicarFora(event, 'maq')">
+    <div class="popup-container">
+      <div class="popup-content">
+        <div class="modal-header">
+          <h2>Máquinas Pesadas</h2>
+          <p class="modal-subtitle">Formação prática de operadores com certificação</p>
+          <button type="button" class="modal-close-icon" onclick="fecharCurso('maq')">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-info-bar">
+            <div class="info-item">Matrícula: <span>R$ 70,00</span></div>
+            <div class="info-item">Duração: <span>04 Semanas</span></div>
+            <div class="info-item">Horário: <span>Sábado 07h às 11h</span></div>
+            <div class="info-item">Requisito: <span>Mínimo 18 anos</span></div>
+          </div>
+          <h4 class="modal-section-title">Equipamentos Ministrados</h4>
+          <ul class="curriculum-list">
+            <li>Operador de Escavadeira Hidráulica</li>
+            <li>Operador de Retroescavadeira</li>
+            <li>Operador de Pá Carregadeira</li>
+            <li>Normas de Segurança Operacional</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close-modal" onclick="fecharCurso('maq')">Fechar</button>
+          <a href="matricula.html" class="btn-modal-action">Quero me matricular</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: ELETRICISTA -->
+  <div id="elec" class="popup" onclick="fecharAoClicarFora(event, 'elec')">
+    <div class="popup-container">
+      <div class="popup-content">
+        <div class="modal-header">
+          <h2>Eletricista Predial & Residencial</h2>
+          <p class="modal-subtitle">Aulas práticas intensivas em salas temáticas</p>
+          <button type="button" class="modal-close-icon" onclick="fecharCurso('elec')">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-info-bar">
+            <div class="info-item">Matrícula: <span>R$ 70,00</span></div>
+            <div class="info-item">Duração: <span>04 Semanas</span></div>
+            <div class="info-item">Horário: <span>Seg. a Sex. 19h às 21h</span></div>
+          </div>
+          <h4 class="modal-section-title">Conteúdo Programático</h4>
+          <ul class="curriculum-list">
+            <li>Fundamentos da Eletricidade</li>
+            <li>Grandezas Elétricas e Medições</li>
+            <li>Componentes de Instalação Predial</li>
+            <li>Instalações Elétricas Residenciais</li>
+            <li>Normas e Segurança em Instalações</li>
+            <li>Diagnóstico e Solução de Defeitos</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close-modal" onclick="fecharCurso('elec')">Fechar</button>
+          <a href="matricula.html" class="btn-modal-action">Quero me matricular</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: NATAÇÃO -->
+  <div id="nat" class="popup" onclick="fecharAoClicarFora(event, 'nat')">
+    <div class="popup-container">
+      <div class="popup-content">
+        <div class="modal-header">
+          <h2>Natação (Infantil e Adulto)</h2>
+          <p class="modal-subtitle">Aulas práticas de desenvolvimento e condicionamento</p>
+          <button type="button" class="modal-close-icon" onclick="fecharCurso('nat')">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-info-bar">
+            <div class="info-item">Modalidade: <span>Presencial na Piscina</span></div>
+            <div class="info-item">Ambiente: <span>Monitorado e Seguro</span></div>
+          </div>
+          <h4 class="modal-section-title">Grade de Horários Disponíveis</h4>
+          <p><strong>Segunda à Quinta-Feira:</strong><br>
+            • Manhã: 07h às 11h<br>
+            • Tarde: 13h às 17h<br>
+            • Noite: 18h às 21h
+          </p>
+          <br>
+          <p><strong>Sexta-Feira e Sábado:</strong><br>
+            • 07h às 11h e 13h às 17h
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close-modal" onclick="fecharCurso('nat')">Fechar</button>
+          <a href="matricula.html" class="btn-modal-action">Quero me matricular</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: EJA -->
+  <div id="eja" class="popup" onclick="fecharAoClicarFora(event, 'eja')">
+    <div class="popup-container">
+      <div class="popup-content">
+        <div class="modal-header">
+          <h2>EJA - Educação de Jovens e Adultos</h2>
+          <p class="modal-subtitle">Conclua seus estudos na modalidade 100% EAD</p>
+          <button type="button" class="modal-close-icon" onclick="fecharCurso('eja')">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-info-bar">
+            <div class="info-item">Matrícula: <span>R$ 100,00</span></div>
+            <div class="info-item">Duração: <span>04 Meses</span></div>
+            <div class="info-item">Flexibilidade: <span>Estude onde e quando quiser</span></div>
+          </div>
+          <p>Aproveitamento das matérias por meio de plataforma moderna de aprendizagem. Caso o aluno não possua acesso
+            estável à Internet em casa, a instituição IBEM fornecerá acesso gratuito no polo presencial.</p>
+
+          <h4 class="modal-section-title">Estrutura do Curso</h4>
+          <ul class="curriculum-list">
+            <li>1º Módulo: 04 Disciplinas Fundamentais</li>
+            <li>2º Módulo: 12 Disciplinas Complementares</li>
+            <li>Acompanhamento pedagógico e suporte a dúvidas</li>
+            <li>Certificado válido para vestibular e concursos</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close-modal" onclick="fecharCurso('eja')">Fechar</button>
+          <a href="matricula.html" class="btn-modal-action">Quero me matricular</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS DE CONTROLE DOS MODAIS -->
+  <script>
+    // Abrir Modal de Curso com Animação no Ícone
+    function abrirCurso(id, element) {
+      let iconBox = null;
+      if (element) {
+        iconBox = element.querySelector('.card-icon-box');
+      } else if (window.event && window.event.currentTarget) {
+        iconBox = window.event.currentTarget.querySelector('.card-icon-box');
+      }
+
+      if (iconBox) {
+        iconBox.classList.remove('anim-clicked');
+        void iconBox.offsetWidth; // Força reflow para reiniciar animação
+        iconBox.classList.add('anim-clicked');
+      }
+
+      // Intervalo suave de 170ms para o utilizador apreciar o salto/pulso do ícone antes do modal abrir
+      setTimeout(function () {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.style.display = 'block';
+          document.body.style.overflow = 'hidden'; // impede scroll de fundo
+        }
+      }, 170);
+    }
+
+    // Abrir Modal de Curso Técnico com Dados Dinâmicos
+    function abrirTecnicoModal(titulo, carga, duracao, descricao, element) {
+      let iconBox = null;
+      if (element) {
+        iconBox = element.querySelector('.card-icon-box');
+      } else if (window.event && window.event.currentTarget) {
+        iconBox = window.event.currentTarget.querySelector('.card-icon-box');
+      }
+
+      if (iconBox) {
+        iconBox.classList.remove('anim-clicked');
+        void iconBox.offsetWidth;
+        iconBox.classList.add('anim-clicked');
+      }
+
+      const modalTitulo = document.getElementById('modalTecnicoTitulo');
+      const modalCarga = document.getElementById('modalTecnicoCarga');
+      const modalDuracao = document.getElementById('modalTecnicoDuracao');
+      const modalDesc = document.getElementById('modalTecnicoDesc');
+
+      if (modalTitulo) modalTitulo.textContent = 'Técnico em ' + titulo;
+      if (modalCarga) modalCarga.textContent = carga;
+      if (modalDuracao) modalDuracao.textContent = duracao;
+      if (modalDesc) modalDesc.textContent = descricao;
+
+      setTimeout(function () {
+        const modal = document.getElementById('modalTecnico');
+        if (modal) {
+          modal.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        }
+      }, 170);
+    }
+
+    // Acessibilidade para Cursos Técnicos
+    function handleTecnicoKey(event, titulo, carga, duracao, descricao) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        abrirTecnicoModal(titulo, carga, duracao, descricao, event.currentTarget);
+      }
+    }
+
+    // Fechar Modal de Curso
+    function fecharCurso(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+      // Limpa classe de animação para novo clique
+      document.querySelectorAll('.card-icon-box.anim-clicked').forEach(function (box) {
+        setTimeout(function () {
+          box.classList.remove('anim-clicked');
+        }, 120);
+      });
+    }
+
+    // Abrir Modal de Login
+    function abrirLogin() {
+      const modal = document.getElementById('loginPopup');
+      if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    // Fechar Modal de Login
+    function fecharLogin() {
+      const modal = document.getElementById('loginPopup');
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // Preencher dados de teste no login
+    function preencherLogin(email, senha) {
+      const emailInput = document.getElementById('loginEmail');
+      const senhaInput = document.getElementById('loginSenha');
+      if (emailInput) emailInput.value = email;
+      if (senhaInput) senhaInput.value = senha;
+    }
+
+    // Entrada direta como Administrador
+    function entrarComoAdmin(event) {
+      if (event) event.preventDefault();
+      sessionStorage.setItem('ibem_usuario', 'Administrador IBEM');
+      sessionStorage.setItem('ibem_tipo', 'admin');
+      window.location.href = 'portal/admin.html';
+    }
+
+    // Entrada direta como Aluno
+    function entrarComoAluno(event) {
+      if (event) event.preventDefault();
+      sessionStorage.setItem('ibem_usuario', 'Aluno Teste IBEM');
+      sessionStorage.setItem('ibem_tipo', 'aluno');
+      window.location.href = 'portal/aluno.html';
+    }
+
+    // Tratamento de login com suporte a testes estáticos e servidores PHP
+    function tratarLogin(event) {
+      const email = (document.getElementById('loginEmail').value || '').trim().toLowerCase();
+      const senha = (document.getElementById('loginSenha').value || '').trim();
+
+      if (email.includes('admin') || email === 'admin@ibem.com.br') {
+        event.preventDefault();
+        entrarComoAdmin();
+        return false;
+      } else if (email.includes('aluno') || email === 'aluno@ibem.com.br') {
+        event.preventDefault();
+        entrarComoAluno();
+        return false;
+      }
+
+      // Se for ambiente estático, padrão entra como admin
+      if (window.location.protocol === 'file:') {
+        event.preventDefault();
+        entrarComoAdmin();
+        return false;
+      }
+      return true;
+    }
+
+    // Fechar modal ao clicar fora da caixa de conteúdo
+    function fecharAoClicarFora(event, id) {
+      if (event.target.classList.contains('popup') || event.target.classList.contains('popup-container')) {
+        fecharCurso(id);
+      }
+    }
+
+    // Acessibilidade: abrir com teclado (Enter ou Barra de Espaço)
+    function handleCardKey(event, id) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        abrirCurso(id, event.currentTarget);
+      }
+    }
+
+    // Filtrar Cursos por Categoria (Todos, Técnicos, Profissionalizantes)
+    function filtrarCategoria(categoria, btn) {
+      document.querySelectorAll('.cat-pill').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      if (btn) btn.classList.add('active');
+
+      const areaTecnicos = document.getElementById('cursos-tecnicos');
+      const areaProf = document.getElementById('cursos-profissionalizantes');
+      const divider = document.querySelector('.courses-area-divider');
+
+      if (categoria === 'tecnicos') {
+        if (areaTecnicos) areaTecnicos.style.display = 'block';
+        if (areaProf) areaProf.style.display = 'none';
+        if (divider) divider.style.display = 'none';
+      } else if (categoria === 'prof') {
+        if (areaTecnicos) areaTecnicos.style.display = 'none';
+        if (areaProf) areaProf.style.display = 'block';
+        if (divider) divider.style.display = 'none';
+      } else {
+        if (areaTecnicos) areaTecnicos.style.display = 'block';
+        if (areaProf) areaProf.style.display = 'block';
+        if (divider) divider.style.display = 'block';
+      }
+
+      filtrarCursos();
+    }
+
+    // Busca Dinâmica em Tempo Real
+    function filtrarCursos() {
+      const input = document.getElementById('inputBuscaCursos');
+      const query = input ? input.value.toLowerCase().trim() : '';
+      const activePill = document.querySelector('.cat-pill.active');
+      const categoria = activePill ? activePill.getAttribute('data-filter') : 'todos';
+
+      const cards = document.querySelectorAll('.course-card');
+      let visiveis = 0;
+
+      cards.forEach(function(card) {
+        const isTecnico = card.closest('#cursos-tecnicos') !== null;
+        const isProf = card.closest('#cursos-profissionalizantes') !== null;
+
+        let matchCat = true;
+        if (categoria === 'tecnicos' && !isTecnico) matchCat = false;
+        if (categoria === 'prof' && !isProf) matchCat = false;
+
+        if (!matchCat) {
+          card.style.display = 'none';
+          return;
+        }
+
+        const texto = card.textContent.toLowerCase();
+        if (!query || texto.includes(query)) {
+          card.style.display = 'flex';
+          visiveis++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      let emptyMsg = document.getElementById('emptySearchMsg');
+      if (!emptyMsg) {
+        emptyMsg = document.createElement('div');
+        emptyMsg.id = 'emptySearchMsg';
+        emptyMsg.style.cssText = 'text-align:center; padding: 48px 20px; color: var(--text-muted); font-size: 1rem; width: 100%;';
+        emptyMsg.innerHTML = '<p style="font-weight:600; font-size:1.1rem; color:var(--primary); margin-bottom:8px;">🔍 Nenhum curso encontrado</p><p>Tente buscar por outro termo ou selecione "Todos os Cursos".</p>';
+        const inner = document.querySelector('.courses-inner');
+        if (inner) inner.appendChild(emptyMsg);
+      }
+      emptyMsg.style.display = (visiveis === 0) ? 'block' : 'none';
+    }
+
+    // Alternar menu mobile da navbar
+    function toggleMobileMenu() {
+      const menu = document.getElementById('navbarMenu');
+      if (menu) {
+        menu.classList.toggle('open');
+      }
+    }
+
+    // Fechar menu mobile ao clicar em um link
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.navbar-menu .nav-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          const menu = document.getElementById('navbarMenu');
+          if (menu && menu.classList.contains('open')) {
+            menu.classList.remove('open');
+          }
+        });
+      });
+    });
+
+    // Fechar modais ao pressionar tecla ESC
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        const popups = document.querySelectorAll('.popup');
+        popups.forEach(popup => {
+          popup.style.display = 'none';
+        });
+        document.body.style.overflow = 'auto';
+        document.querySelectorAll('.card-icon-box.anim-clicked').forEach(function (box) {
+          box.classList.remove('anim-clicked');
+        });
+      }
+    });
+
+    // Permitir animação interativa ao clicar diretamente no ícone
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.card-icon-box').forEach(function (box) {
+        box.addEventListener('click', function (e) {
+          box.classList.remove('anim-clicked');
+          void box.offsetWidth;
+          box.classList.add('anim-clicked');
+        });
+      });
+
+      // Se foi redirecionado com erro de login, exibe a mensagem e abre o modal automaticamente
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('erro')) {
+        const erroBox = document.getElementById('loginErroMensagem');
+        const erroTipo = urlParams.get('erro');
+        if (erroBox) {
+          if (erroTipo === '1') {
+            erroBox.textContent = '⚠️ E-mail ou senha incorretos. Por favor, tente novamente.';
+          } else if (erroTipo === 'restrito') {
+            erroBox.textContent = '🔒 Acesso restrito. Faça login com uma conta de Administrador.';
+          } else {
+            erroBox.textContent = '⚠️ Ocorreu um erro ao efetuar login.';
+          }
+          erroBox.style.display = 'block';
+        }
+        abrirLogin();
+      }
+    });
+  </script>
+
+</body>
+
+</html>

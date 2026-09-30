@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula Interativa - IBEM</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../assets/img/logo.png">
+
+  <style>
+    :root {
+      --primary: #0A3D62;
+      --primary-light: #145DA0;
+      --accent: #0284C7;
+      --success: #10B981;
+      --bg: #F4F6F9;
+      --surface: #FFFFFF;
+      --text: #1E293B;
+      --muted: #64748B;
+      --border: #E2E8F0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 30px 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 860px;
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-voltar {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-voltar:hover {
+      color: var(--accent);
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 18px;
+    }
+
+    .btn-audio {
+      background: #E0F2FE;
+      color: #0369A1;
+      border: 1px solid #BAE6FD;
+      padding: 9px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+
+    .btn-audio:hover {
+      background: #BAE6FD;
+    }
+
+    .btn-audio.tocando {
+      background: #FEE2E2;
+      color: #B91C1C;
+      border-color: #FECACA;
+    }
+
+    .conteudo-texto {
+      margin: 24px 0;
+      padding: 24px;
+      background: #F8FAFC;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 1.05rem;
+      white-space: pre-line;
+      line-height: 1.8;
+    }
+
+    .rodape-acoes {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn-concluir {
+      background: var(--success);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+
+    .btn-concluir:hover {
+      background: #059669;
+    }
+
+    .alert-sucesso {
+      background: #DCFCE7;
+      color: #15803D;
+      border: 1px solid #86EFAC;
+      padding: 14px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-weight: 500;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="top-bar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="../assets/img/logo.png" alt="IBEM" style="width:36px; height:36px; object-fit:contain;">
+        <a href="aluno.html" class="btn-voltar">← Voltar às Aulas</a>
+      </div>
+      <button type="button" id="btnAudio" class="btn-audio" onclick="alternarNarracao()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        <span>Ouvir Aula</span>
+      </button>
+    </div>
+
+    <div id="alertaSucesso" class="alert-sucesso"></div>
+
+    <h1 id="tituloAula">Carregando aula...</h1>
+
+    <div class="conteudo-texto" id="textoAula">
+      Carregando conteúdo didático da aula...
+    </div>
+
+    <div class="rodape-acoes">
+      <a href="aluno.html" class="btn-voltar">← Voltar à lista de aulas</a>
+
+      <button type="button" id="btnConcluir" class="btn-concluir" onclick="concluirAula()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span>Concluir Aula</span>
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    const modulosDados = [
+      {
+        id: 1,
+        ordem: 1,
+        titulo: "Módulo 1 - Introdução e Fundamentos",
+        texto: "Bem-vindo ao primeiro módulo do seu curso no IBEM!\n\nNeste módulo introdutório, você conhecerá os princípios éticos fundamentais da sua profissão, a postura de sucesso no ambiente de trabalho e os conceitos estruturais que servirão de alicerce para toda a sua formação prática.\n\nAproveite cada tópico, anote suas dúvidas e pratique os exercícios propostos para garantir o máximo aproveitamento acadêmico e profissional."
+      },
+      {
+        id: 2,
+        ordem: 2,
+        titulo: "Módulo 2 - Prática Operacional e Ferramentas",
+        texto: "Bem-vindo ao Módulo 2 do IBEM!\n\nNeste módulo focado na operação prática, você aprenderá as metodologias de execução, normas técnicas e de segurança operacional, além do manuseio correto das principais ferramentas do setor.\n\nFoque na precisão dos procedimentos e na atenção às melhores práticas recomendadas pelos instrutores."
+      },
+      {
+        id: 3,
+        ordem: 3,
+        titulo: "Módulo 3 - Preparação para o Mercado de Trabalho",
+        texto: "Parabéns por chegar ao Módulo 3!\n\nAqui trabalhamos a sua inserção no mercado profissional. Abordamos a estruturação de um currículo de alto impacto, técnicas avançadas para entrevistas de emprego, networking estratégico e o encaminhamento para empresas e indústrias parceiras do Instituto Brasileiro de Educação Moderna (IBEM)."
+      }
+    ];
+
+    let aulaAtualId = 1;
+    let falando = false;
+
+    function carregarAula() {
+      const urlParams = new URLSearchParams(window.location.search);
+      aulaAtualId = parseInt(urlParams.get('id') || '1');
+
+      const aula = modulosDados.find(m => m.id === aulaAtualId) || modulosDados[0];
+
+      document.title = `${aula.titulo} - IBEM`;
+      document.getElementById('tituloAula').textContent = `#${aula.ordem} • ${aula.titulo}`;
+      document.getElementById('textoAula').textContent = aula.texto;
+
+      // Se já estava concluída no localStorage
+      const salvo = localStorage.getItem('ibem_modulos');
+      if (salvo) {
+        try {
+          const modulos = JSON.parse(salvo);
+          const m = modulos.find(x => x.id === aulaAtualId);
+          if (m && m.concluido) {
+            const btn = document.getElementById('btnConcluir');
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span>Aula Concluída</span>';
+            btn.style.background = '#059669';
+          }
+        } catch(e) {}
+      }
+    }
+
+    function alternarNarracao() {
+      if (!('speechSynthesis' in window)) {
+        alert("Seu navegador não possui suporte para síntese de voz.");
+        return;
+      }
+
+      const btn = document.getElementById('btnAudio');
+
+      if (falando) {
+        window.speechSynthesis.cancel();
+        falando = false;
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> <span>Ouvir Aula</span>';
+        btn.classList.remove('tocando');
+        return;
+      }
+
+      const texto = document.getElementById("textoAula").innerText;
+      if (!texto.trim()) return;
+
+      window.speechSynthesis.cancel();
+      const fala = new SpeechSynthesisUtterance(texto);
+      fala.lang = "pt-BR";
+      fala.rate = 1.0;
+
+      fala.onend = function() {
+        falando = false;
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> <span>Ouvir Aula</span>';
+        btn.classList.remove('tocando');
+      };
+
+      fala.onerror = function() {
+        falando = false;
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> <span>Ouvir Aula</span>';
+        btn.classList.remove('tocando');
+      };
+
+      window.speechSynthesis.speak(fala);
+      falando = true;
+      btn.innerHTML = '<span>Pausar Leitura</span>';
+      btn.classList.add('tocando');
+    }
+
+    function concluirAula() {
+      const salvo = localStorage.getItem('ibem_modulos');
+      let modulos = [];
+      if (salvo) {
+        try { modulos = JSON.parse(salvo); } catch(e) {}
+      }
+
+      const mod = modulos.find(m => m.id === aulaAtualId);
+      if (mod) {
+        mod.concluido = true;
+        localStorage.setItem('ibem_modulos', JSON.stringify(modulos));
+      }
+
+      const alerta = document.getElementById('alertaSucesso');
+      alerta.innerHTML = `Aula concluída com sucesso.`;
+      alerta.style.display = 'block';
+
+      const btn = document.getElementById('btnConcluir');
+      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span>Aula Concluída</span>';
+      btn.style.background = '#059669';
+    }
+
+    document.addEventListener('DOMContentLoaded', carregarAula);
+  </script>
+
+</body>
+</html>

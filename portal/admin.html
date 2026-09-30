@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IBEM - Painel Administrativo de Gestão Escolar</title>
+  <meta name="description" content="Painel de Controle Oficial do Administrador do Instituto Brasileiro de Educação Moderna - Gestão de Alunos, Aulas e Liberações.">
+
+  <!-- Google Fonts: Poppins & Inter (Fontes Oficiais IBEM) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../assets/img/logo.png">
+
+  <style>
+    /* ================= PALETA DE CORES & VARIÁVEIS OFICIAIS IBEM ================= */
+    :root {
+      --primary: #0A3D62;
+      --primary-dark: #072740;
+      --primary-light: #145DA0;
+      --accent: #0284C7;
+      --accent-hover: #0369A1;
+      --accent-light: #E0F2FE;
+      --success: #10B981;
+      --success-dark: #059669;
+      --success-light: #ECFDF5;
+      --warning: #F59E0B;
+      --warning-dark: #D97706;
+      --warning-light: #FFFBEB;
+      --danger: #EF4444;
+      --danger-dark: #DC2626;
+      --danger-light: #FEF2F2;
+      --bg-gradient-start: #072740;
+      --bg-gradient-end: #0E4B77;
+      --surface: #FFFFFF;
+      --surface-alt: #F8FAFC;
+      --surface-hover: #F1F5F9;
+      --text-main: #1E293B;
+      --text-muted: #64748B;
+      --border-light: #E2E8F0;
+      --border-focus: #38BDF8;
+      --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-sm: 0 2px 6px rgba(10, 61, 98, 0.06);
+      --shadow-md: 0 4px 16px rgba(10, 61, 98, 0.08);
+      --shadow-lg: 0 12px 32px rgba(10, 61, 98, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-pill: 9999px;
+      --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text-main);
+      background: linear-gradient(145deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+      min-height: 100vh;
+      line-height: 1.5;
+      padding: 32px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Container Principal */
+    .admin-wrapper {
+      width: 100%;
+      max-width: 1240px;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+      overflow: hidden;
+      margin: 0 auto;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* ================= CABEÇALHO HERO INSTITUCIONAL ================= */
+    .admin-header {
+      background: linear-gradient(180deg, #F0F7FF 0%, #FFFFFF 100%);
+      padding: 32px 32px 24px 32px;
+      border-bottom: 1px solid var(--border-light);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand-logo {
+      height: 58px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.08));
+    }
+
+    .brand-text h1 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+
+    .brand-text p {
+      font-size: 0.84rem;
+      color: var(--accent);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .user-profile-badge {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--primary-light) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+    }
+
+    .user-info {
+      line-height: 1.25;
+    }
+
+    .user-name {
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+
+    .user-role {
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-left: 6px;
+      border-left: 1px solid var(--border-light);
+      padding-left: 12px;
+    }
+
+    .btn-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 1px solid var(--border-light);
+    }
+
+    .btn-header-site {
+      background: var(--surface-alt);
+      color: var(--primary);
+    }
+
+    .btn-header-site:hover {
+      background: var(--accent-light);
+      color: var(--accent-hover);
+      border-color: var(--accent);
+    }
+
+    .btn-header-logout {
+      background: var(--danger-light);
+      color: var(--danger-dark);
+      border-color: #FECACA;
+    }
+
+    .btn-header-logout:hover {
+      background: var(--danger);
+      color: white;
+    }
+
+    /* ================= BARRA DE ABAS (PILLS NAVIGATION) ================= */
+    .admin-nav {
+      display: flex;
+      gap: 10px;
+      padding: 14px 32px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-light);
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .nav-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 20px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-pill);
+      color: var(--text-muted);
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      white-space: nowrap;
+      outline: none;
+    }
+
+    .nav-tab:hover {
+      color: var(--primary);
+      background: #F1F5F9;
+      transform: translateY(-1px);
+    }
+
+    .nav-tab.active {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(10, 61, 98, 0.22);
+    }
+
+    .nav-tab.active svg {
+      stroke: white;
+    }
+
+    .badge-counter {
+      background: var(--warning);
+      color: #78350F;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      transition: var(--transition);
+    }
+
+    .badge-counter.active-counter {
+      background: #FFFFFF;
+      color: var(--primary);
+    }
+
+    /* ================= CONTEÚDO PRINCIPAL ================= */
+    .admin-content {
+      padding: 28px 32px;
+      background: #F8FAFC;
+      min-height: 560px;
+    }
+
+    /* Alertas */
+    .alert-box {
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.88rem;
+      animation: slideDown 0.25s ease-out;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .alert-success {
+      background: var(--success-light);
+      color: var(--success-dark);
+      border: 1px solid #A7F3D0;
+    }
+
+    .alert-danger {
+      background: var(--danger-light);
+      color: var(--danger-dark);
+      border: 1px solid #FECACA;
+    }
+
+    /* ================= GRID DE ESTATÍSTICAS EXECUTIVAS ================= */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: #CBD5E1;
+    }
+
+    .stat-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .stat-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .icon-alunos { background: #E0F2FE; color: #0284C7; }
+    .icon-aulas { background: #EDE9FE; color: #7C3AED; }
+    .icon-pendentes { background: #FEF3C7; color: #D97706; }
+    .icon-concluidas { background: #DCFCE7; color: #16A34A; }
+
+    .stat-data {
+      flex: 1;
+    }
+
+    .stat-data h3 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.1;
+    }
+
+    .stat-data p {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .stat-badge-trend {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-top: 4px;
+      color: var(--accent);
+    }
+
+    /* ================= SEÇÕES & CARDS ================= */
+    .section-card {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .section-header-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-light);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .section-header-title h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-header-title p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ================= TABELAS MODERNAS INSTITUCIONAIS ================= */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .modern-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.86rem;
+    }
+
+    .modern-table th {
+      background: #F1F5F9;
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 12px 16px;
+      border-bottom: 2px solid var(--border-light);
+      text-transform: uppercase;
+      font-size: 0.74rem;
+      letter-spacing: 0.5px;
+    }
+
+    .modern-table td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: middle;
+      color: var(--text-main);
+    }
+
+    .modern-table tr:hover td {
+      background: #F8FAFC;
+    }
+
+    /* Badges de Status */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .badge-pendente {
+      background: #FEF3C7;
+      color: #B45309;
+      border: 1px solid #FDE68A;
+    }
+
+    .badge-liberado, .badge-aprovada {
+      background: #DCFCE7;
+      color: #15803D;
+      border: 1px solid #BBF7D0;
+    }
+
+    .badge-bloqueado, .badge-rejeitada {
+      background: #FEE2E2;
+      color: #B91C1C;
+      border: 1px solid #FECACA;
+    }
+
+    .badge-curso {
+      background: #EFF6FF;
+      color: #1E40AF;
+      border: 1px solid #DBEAFE;
+    }
+
+    /* ================= BOTÕES & AÇÕES ================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 0.78rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--primary-light) 100%);
+      color: white;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--accent-hover) 0%, var(--primary) 100%);
+      transform: translateY(-1px);
+    }
+
+    .btn-success {
+      background: var(--success);
+      color: white;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.22);
+    }
+
+    .btn-success:hover {
+      background: var(--success-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: var(--danger-dark);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border-light);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      background: var(--surface-alt);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ================= FORMULÁRIOS ================= */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 0.88rem;
+      font-family: inherit;
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--text-main);
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-helper {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      user-select: none;
+    }
+
+    .checkbox-container input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    /* Barra de Busca de Alunos */
+    .search-bar-wrapper {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .search-input-box {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-input-box svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+
+    .search-input-box input {
+      padding-left: 42px;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 36px 20px;
+      color: var(--text-muted);
+    }
+
+    .empty-state svg {
+      margin-bottom: 12px;
+      color: #94A3B8;
+    }
+
+    .empty-state h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    /* Grade de Aulas (Matrix) */
+    .aulas-matrix {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .aula-card-item {
+      background: var(--surface);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .aula-card-item.liberada {
+      border-color: #86EFAC;
+      background: #F0FDF4;
+    }
+
+    .aula-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .aula-card-num {
+      background: var(--surface-alt);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      color: var(--primary);
+      border: 1px solid var(--border-light);
+    }
+
+    .aula-card-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .aula-card-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      max-height: 2.8em;
+    }
+
+    /* Responsividade */
+    @media (max-width: 900px) {
+      body {
+        padding: 12px 8px;
+      }
+      .admin-header {
+        padding: 20px 18px;
+      }
+      .admin-nav {
+        padding: 12px 18px;
+      }
+      .admin-content {
+        padding: 20px 16px;
+      }
+      .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .user-profile-badge {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="admin-wrapper">
+
+    <!-- ================= CABEÇALHO / HERO ================= -->
+    <header class="admin-header">
+      <div class="header-top">
+        <div class="brand-section">
+          <img src="../assets/img/logo.png" alt="Instituto Brasileiro de Educação Moderna" class="brand-logo">
+          <div class="brand-text">
+            <h1>Instituto Brasileiro de Educação Moderna</h1>
+            <p>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <span>Painel Administrativo Oficial &bull; Gestão Escolar</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="user-profile-badge">
+          <div class="user-avatar" id="avatarLetra">A</div>
+          <div class="user-info">
+            <div class="user-name" id="adminNomeExibicao">Administrador Geral</div>
+            <div class="user-role">Diretoria Acadêmica</div>
+          </div>
+          <div class="header-actions">
+            <a href="../index.html" class="btn-header btn-header-site" title="Acessar o portal público">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              <span>Site</span>
+            </a>
+            <a href="logout.php" onclick="sairPainel(event)" class="btn-header btn-header-logout" title="Encerrar sessão de administrador">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+              <span>Sair</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= BARRA DE ABAS (PILLS NAVIGATION) ================= -->
+    <nav class="admin-nav">
+      <button type="button" onclick="mudarAba('dashboard')" id="nav-dashboard" class="nav-tab active">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="9"></rect>
+          <rect x="14" y="3" width="7" height="5"></rect>
+          <rect x="14" y="12" width="7" height="9"></rect>
+          <rect x="3" y="16" width="7" height="5"></rect>
+        </svg>
+        <span>Dashboard & Solicitações</span>
+        <span id="badgeContadorPendentes" class="badge-counter" style="display:none;">0</span>
+      </button>
+
+      <button type="button" onclick="mudarAba('alunos')" id="nav-alunos" class="nav-tab">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="8.5" cy="7" r="4"></circle>
+          <line x1="20" y1="8" x2="20" y2="14"></line>
+          <line x1="23" y1="11" x2="17" y2="11"></line>
+        </svg>
+        <span>Alunos & Matrículas</span>
+      </button>
+
+      <button type="button" onclick="mudarAba('aulas')" id="nav-aulas" class="nav-tab">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          <line x1="12" y1="7" x2="12" y2="13"></line>
+          <line x1="9" y1="10" x2="15" y2="10"></line>
+        </svg>
+        <span>Grade Curricular EAD</span>
+      </button>
+
+      <button type="button" onclick="mudarAba('liberar')" id="nav-liberar" class="nav-tab">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
+        </svg>
+        <span>Liberação de Aulas</span>
+      </button>
+    </nav>
+
+    <!-- ================= CONTEÚDO DAS ABAS ================= -->
+    <div class="admin-content">
+
+      <!-- Alertas Dinâmicos -->
+      <div id="alertaSucesso" class="alert-box alert-success" style="display:none;"></div>
+      <div id="alertaErro" class="alert-box alert-danger" style="display:none;"></div>
+
+      <!-- ================= ABA 1: DASHBOARD & SOLICITAÇÕES ================= -->
+      <div id="pane-dashboard" class="tab-pane">
+
+        <!-- 4 Cards de Métricas Rápidas -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon icon-alunos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="stat-data">
+              <h3 id="statTotalAlunos">0</h3>
+              <p>Alunos Matriculados</p>
+              <span class="stat-badge-trend">Turma 2026.2 &bull; 100% regulares</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon icon-aulas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <div class="stat-data">
+              <h3 id="statTotalAulas">3</h3>
+              <p>Módulos na Grade EAD</p>
+              <span class="stat-badge-trend">Ambiente Autoinstrucional</span>
+            </div>
+          </div>
+
+          <div class="stat-card" id="cardPendentesWrapper">
+            <div class="stat-icon icon-pendentes">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="stat-data">
+              <h3 id="statTotalPendentes">0</h3>
+              <p>Solicitações Pendentes</p>
+              <span class="stat-badge-trend" id="subtextoPendentes">Aguardando liberação</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon icon-concluidas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div class="stat-data">
+              <h3 id="statTotalConclusoes">0</h3>
+              <p>Módulos Concluídos</p>
+              <span class="stat-badge-trend">Aproveitamento médio: 94%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seção 1: Solicitações de Aulas Pendentes -->
+        <div class="section-card">
+          <div class="section-header-title">
+            <div>
+              <h2>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Solicitações de Aulas Pendentes</span>
+              </h2>
+              <p>Estudantes que solicitaram a liberação de novos módulos para estudo autônomo.</p>
+            </div>
+            <div id="badgePendentesHeader"></div>
+          </div>
+
+          <div id="containerSolicitacoes"></div>
+        </div>
+
+        <!-- Seção 2: Histórico Recente de Solicitações Respondidas -->
+        <div class="section-card">
+          <div class="section-header-title">
+            <div>
+              <h2>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>Histórico de Pareceres e Liberações Recentes</span>
+              </h2>
+              <p>Registro das últimas liberações concedidas pela equipe pedagógica.</p>
+            </div>
+          </div>
+
+          <div id="containerHistorico"></div>
+        </div>
+
+        <!-- Seção 3: Quadro Rápido de Estudantes Ativos -->
+        <div class="section-card">
+          <div class="section-header-title">
+            <div>
+              <h2>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="8.5" cy="7" r="4"></circle>
+                </svg>
+                <span>Visão Geral dos Alunos Matriculados</span>
+              </h2>
+              <p>Acompanhamento de status acadêmico e progresso curricular.</p>
+            </div>
+            <button type="button" class="btn btn-outline btn-sm" onclick="mudarAba('alunos')">
+              <span>Gerenciar Todos os Alunos</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+
+          <div id="containerAlunosResumo"></div>
+        </div>
+
+      </div>
+
+      <!-- ================= ABA 2: ALUNOS & MATRÍCULAS ================= -->
+      <div id="pane-alunos" class="tab-pane" style="display:none;">
+
+        <!-- Formulário de Cadastro de Aluno -->
+        <div class="section-card">
+          <div class="section-header-title">
+            <div>
+              <h2>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="8.5" cy="7" r="4"></circle>
+                  <line x1="20" y1="8" x2="20" y2="14"></line>
+                  <line x1="23" y1="11" x2="17" y2="11"></line>
+                </svg>
+                <span>Cadastrar Novo Aluno no Sistema</span>
+              </h2>
+              <p>Cadastre o estudante para conceder acesso imediato ao ambiente do aluno.</p>
+            </div>
+          </div>
+
+          <form onsubmit="cadastrarAluno(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="alunoNome">Nome Completo *</label>
+                <input type="text" id="alunoNome" class="form-input" placeholder="Ex: Carlos Eduardo de Sousa" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="alunoEmail">E-mail Institucional de Acesso *</label>
+                <input type="email" id="alunoEmail" class="form-input" placeholder="carlos.sousa@ibem.com.br" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="alunoCurso">Curso Técnico Matriculado *</label>
+                <select id="alunoCurso" class="form-select" required>
+                  <option value="Técnico em Edificações">Técnico em Edificações</option>
+                  <option value="Técnico em Administração">Técnico em Administração</option>
+                  <option value="Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                  <option value="Técnico em Segurança do Trabalho">Técnico em Segurança do Trabalho</option>
+                  <option value="Técnico em Mecânica">Técnico em Mecânica</option>
+                  <option value="Técnico em Logística">Técnico em Logística</option>
+                  <option value="Técnico em Recursos Humanos">Técnico em Recursos Humanos</option>
+                  <option value="Técnico em Contabilidade">Técnico em Contabilidade</option>
+                  <option value="Técnico em Meio Ambiente">Técnico em Meio Ambiente</option>
+                  <option value="Técnico em Marketing">Técnico em Marketing</option>
+                  <option value="Técnico em Design de Interiores">Técnico em Design de Interiores</option>
+                  <option value="Técnico em Automação Industrial">Técnico em Automação Industrial</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="alunoSenha">Senha Provisória *</label>
+                <div style="display:flex; gap:8px;">
+                  <input type="password" id="alunoSenha" class="form-input" placeholder="Mínimo 6 dígitos" required>
+                  <button type="button" class="btn btn-outline btn-sm" onclick="gerarSenhaAleatoria()" title="Gerar senha segura">Gerar</button>
+                  <button type="button" class="btn btn-outline btn-sm" onclick="toggleSenha('alunoSenha', this)">Exibir</button>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-top:10px;">
+              <label class="checkbox-container">
+                <input type="checkbox" id="alunoLiberarPrimeira" checked>
+                <span>Liberar automaticamente o <strong>Módulo 1</strong> após a matrícula</span>
+              </label>
+
+              <button type="submit" class="btn btn-primary">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Concluir Matrícula do Aluno</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Tabela Completa de Alunos -->
+        <div class="section-card">
+          <div class="section-header-title">
+            <div>
+              <h2>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+                <span>Relação Geral de Alunos Cadastrados</span>
+              </h2>
+              <p>Pesquise, filtre ou gerencie as permissões e dados dos alunos.</p>
+            </div>
+          </div>
+
+          <div class="search-bar-wrapper">
+            <div class="search-input-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="filtroAlunosInput" class="form-input" placeholder="Buscar aluno por nome, e-mail ou curso técnico..." onkeyup="filtrarAlunos()">
+            </div>
+          </div>
+
+          <div id="containerTabelaAlunos"></div>
+        </div>
+
+      </div>
+
+      <!-- ================= ABA 3: GRADE CURRICULAR & AULAS ================= -->
+      <div id="pane-aulas" class="tab-pane" style="display:none;">
+
+        <div class="section-card">
+          <div class="section-header-title">
+            <div>
+              <h2>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 5v14M5 12h14"></path>
+                </svg>
+                <span>Cadastrar Novo Módulo / Aula</span>
+              </h2>
+              <p>Adicione conteúdos textuais e didáticos à grade curricular autoinstrucional.</p>
+            </div>
+          </div>
+
+          <form onsubmit="cadastrarAula(event)">
+            <div class="form-grid">
+              <div class="form-group" style="grid-column: span 2;">
+                <label class="form-label" for="aulaTitulo">Título do Módulo Curricular *</label>
+                <input type="text" id="aulaTitulo" class="form-input" placeholder="Ex: Módulo 4 - Legislação Profissional e Normas Técnicas" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="aulaOrdem">Ordem na Grade Curricular *</label>
+                <input type="number" id="aulaOrdem" class="form-input" value="4" min="1" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="aulaTexto">Conteúdo Didático da Aula (Texto estruturado) *</label>
+              <textarea id="aulaTexto" class="form-textarea" placeholder="Insira o conteúdo didático da aula, orientações de estudo, referências e atividades práticas..." required></textarea>
+              <div class="form-helper">O sistema possui narração por voz (SpeechSynthesis) para os alunos acompanharem o texto por áudio.</div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+              <label class="checkbox-container">
+                <input type="checkbox" id="aulaLiberarTodos">
+                <span>Liberar imediatamente este novo módulo para <strong>todos os alunos cadastrados</strong></span>
+              </label>
+
+              <button type="submit" class="btn btn-primary">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Adicionar Módulo à Grade</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="section-card">
+          <div class="section-header-title">
+            <div>
+              <h2>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>Estrutura Curricular Cadastrada</span>
+              </h2>
+              <p>Módulos atualmente disponíveis no ambiente virtual de aprendizagem.</p>
+            </div>
+          </div>
+
+          <div id="containerListaAulas"></div>
+        </div>
+
+      </div>
+
+      <!-- ================= ABA 4: LIBERAÇÃO DE AULAS ================= -->
+      <div id="pane-liberar" class="tab-pane" style="display:none;">
+
+        <div class="section-card">
+          <div class="section-header-title">
+            <div>
+              <h2>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
+                </svg>
+                <span>Gerenciamento Individual de Acessos por Aluno</span>
+              </h2>
+              <p>Selecione um aluno para conceder ou revogar acesso a cada módulo individualmente.</p>
+            </div>
+          </div>
+
+          <div class="form-group" style="max-width: 480px;">
+            <label class="form-label" for="selectAlunoLiberar">Selecione o Aluno para Gestão:</label>
+            <select id="selectAlunoLiberar" class="form-select" onchange="carregarMatrizAluno()">
+              <!-- Preenchido via JavaScript -->
+            </select>
+          </div>
+
+          <div style="margin-top:20px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
+              <h3 style="font-size:0.96rem; font-weight:700; color:var(--primary);">Status dos Módulos para o Aluno</h3>
+              <button type="button" class="btn btn-outline btn-sm" onclick="liberarTodasAlunoSelecionado()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Liberar Todos os Módulos para este Aluno</span>
+              </button>
+            </div>
+
+            <div id="containerMatrizAulas" class="aulas-matrix"></div>
+          </div>
+        </div>
+
+        <!-- Liberação Coletiva em Lote -->
+        <div class="section-card">
+          <div class="section-header-title">
+            <div>
+              <h2>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>Liberação Coletiva em Lote (Toda a Turma)</span>
+              </h2>
+              <p>Libere um módulo específico simultaneamente para todos os alunos cadastrados.</p>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap; max-width:650px;">
+            <div class="form-group" style="flex:1; margin-bottom:0; min-width:260px;">
+              <label class="form-label" for="selectAulaColetiva">Módulo para Liberação Geral:</label>
+              <select id="selectAulaColetiva" class="form-select">
+                <!-- Preenchido via JavaScript -->
+              </select>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="liberarAulaParaTodos()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Liberar para Toda a Turma</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ================= LÓGICA JAVASCRIPT INSTITUCIONAL ================= -->
+  <script>
+    /* Nomes fictícios para expurgo imediato do LocalStorage */
+    const NOMES_FICTICIOS = [
+      "Mariana Souza Oliveira",
+      "Carlos Eduardo Mendes",
+      "Amanda Beatriz Carvalho",
+      "Lucas Vinícius Rocha"
+    ];
+
+    /* Dados Oficiais de Inicialização do IBEM: Apenas a conta de testes oficial */
+    const alunosPadrao = [
+      { id: 1, matricula: "IBEM-2026-001", nome: "Aluno Teste IBEM", email: "aluno@ibem.com.br", curso: "Técnico em Edificações", data: "28/09/2026", status: "Ativo" }
+    ];
+
+    const aulasPadrao = [
+      { id: 1, ordem: 1, titulo: "Módulo 1 - Introdução e Fundamentos Profissionais", texto: "Bem-vindo ao primeiro módulo do seu curso no IBEM! Neste bloco introdutório, abordamos os princípios fundamentais da formação técnica, ética e postura no ambiente corporativo.", liberado: true, concluido: true },
+      { id: 2, ordem: 2, titulo: "Módulo 2 - Prática Operacional e Ferramentas Técnicas", texto: "Neste módulo de consolidação operacional, você terá contato com ferramentas e métodos de rotina de trabalho, normas regulamentadoras e rotinas operacionais.", liberado: false, concluido: false },
+      { id: 3, ordem: 3, titulo: "Módulo 3 - Preparação para o Mercado de Trabalho", texto: "Elaboração de currículo técnico profissional, entrevistas de emprego estruturadas e encaminhamento ao banco de talentos de empresas conveniadas ao IBEM.", liberado: false, concluido: false }
+    ];
+
+    const solicitacoesPadrao = [];
+    const historicoPadrao = [];
+
+    /* Gerenciamento de Persistência no LocalStorage com Limpeza Automática */
+    function getAlunos() {
+      const salvo = localStorage.getItem('ibem_alunos');
+      if (salvo !== null) {
+        try {
+          const parsed = JSON.parse(salvo);
+          if (Array.isArray(parsed)) {
+            // Remove alunos fictícios mockados se ainda existirem
+            const filtrados = parsed.filter(a => !NOMES_FICTICIOS.includes(a.nome));
+            if (filtrados.length !== parsed.length) {
+              saveAlunos(filtrados);
+            }
+            return filtrados;
+          }
+        } catch (e) {}
+      }
+      localStorage.setItem('ibem_alunos', JSON.stringify(alunosPadrao));
+      return alunosPadrao;
+    }
+
+    function saveAlunos(arr) {
+      localStorage.setItem('ibem_alunos', JSON.stringify(arr));
+    }
+
+    function getAulas() {
+      const salvo = localStorage.getItem('ibem_modulos');
+      if (salvo) {
+        try {
+          const parsed = JSON.parse(salvo);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        } catch (e) {}
+      }
+      localStorage.setItem('ibem_modulos', JSON.stringify(aulasPadrao));
+      return aulasPadrao;
+    }
+
+    function saveAulas(arr) {
+      localStorage.setItem('ibem_modulos', JSON.stringify(arr));
+    }
+
+    function getSolicitacoes() {
+      const salvo = localStorage.getItem('ibem_solicitacoes');
+      if (salvo) {
+        try {
+          let parsed = JSON.parse(salvo);
+          if (Array.isArray(parsed)) {
+            parsed = parsed.filter(s => !NOMES_FICTICIOS.includes(s.usuario));
+            saveSolicitacoes(parsed);
+            return parsed;
+          }
+        } catch (e) {}
+      }
+      return [];
+    }
+
+    function saveSolicitacoes(arr) {
+      localStorage.setItem('ibem_solicitacoes', JSON.stringify(arr));
+    }
+
+    function getHistorico() {
+      const salvo = localStorage.getItem('ibem_historico');
+      if (salvo) {
+        try {
+          let parsed = JSON.parse(salvo);
+          if (Array.isArray(parsed)) {
+            parsed = parsed.filter(h => !NOMES_FICTICIOS.includes(h.usuario));
+            saveHistorico(parsed);
+            return parsed;
+          }
+        } catch (e) {}
+      }
+      return [];
+    }
+
+    function saveHistorico(arr) {
+      localStorage.setItem('ibem_historico', JSON.stringify(arr));
+    }
+
+    /* Alternância de Abas */
+    function mudarAba(nomeAba) {
+      document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => p.style.display = 'none');
+
+      const btn = document.getElementById('nav-' + nomeAba);
+      const pane = document.getElementById('pane-' + nomeAba);
+      if (btn) btn.classList.add('active');
+      if (pane) pane.style.display = 'block';
+
+      renderizarTudo();
+    }
+
+    /* Alertas Visuais */
+    function mostrarAlerta(msg, tipo = 'sucesso') {
+      const box = tipo === 'sucesso' ? document.getElementById('alertaSucesso') : document.getElementById('alertaErro');
+      if (box) {
+        box.innerHTML = `
+          <div style="display:flex; align-items:center; gap:10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              ${tipo === 'sucesso' ? '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>' : '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>'}
+            </svg>
+            <span>${msg}</span>
+          </div>
+          <button type="button" onclick="this.parentElement.style.display='none'" style="background:none; border:none; cursor:pointer; color:inherit; font-size:1.3rem;">&times;</button>
+        `;
+        box.style.display = 'flex';
+        setTimeout(() => { box.style.display = 'none'; }, 4500);
+      }
+    }
+
+    /* Aprovação e Recusa de Solicitações */
+    function aprovarSolicitacao(id) {
+      const solicitacoes = getSolicitacoes();
+      const index = solicitacoes.findIndex(s => s.id === id);
+      if (index !== -1) {
+        const sol = solicitacoes[index];
+        sol.status = 'aprovada';
+
+        // Registra no histórico
+        const historico = getHistorico();
+        historico.unshift({
+          id: Date.now(),
+          usuario: sol.usuario,
+          modulo_titulo: sol.modulo_titulo,
+          data_solic: sol.data,
+          data_resp: new Date().toLocaleDateString('pt-BR') + ' ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+          status: 'aprovada'
+        });
+        saveHistorico(historico);
+
+        // Remove das pendentes ativas
+        solicitacoes.splice(index, 1);
+        saveSolicitacoes(solicitacoes);
+
+        // Atualiza matriz de progresso do aluno se for o aluno teste
+        const aulas = getAulas();
+        const aula = aulas.find(a => a.id === sol.modulo_id);
+        if (aula) {
+          aula.liberado = true;
+          saveAulas(aulas);
+        }
+
+        mostrarAlerta(`Módulo curricular liberado com sucesso para o estudante <strong>${sol.usuario}</strong>.`);
+        renderizarTudo();
+      }
+    }
+
+    function rejeitarSolicitacao(id) {
+      if (confirm("Confirmar a recusa desta solicitação de módulo?")) {
+        const solicitacoes = getSolicitacoes();
+        const index = solicitacoes.findIndex(s => s.id === id);
+        if (index !== -1) {
+          const sol = solicitacoes[index];
+
+          const historico = getHistorico();
+          historico.unshift({
+            id: Date.now(),
+            usuario: sol.usuario,
+            modulo_titulo: sol.modulo_titulo,
+            data_solic: sol.data,
+            data_resp: new Date().toLocaleDateString('pt-BR') + ' ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+            status: 'rejeitada'
+          });
+          saveHistorico(historico);
+
+          solicitacoes.splice(index, 1);
+          saveSolicitacoes(solicitacoes);
+
+          mostrarAlerta(`Solicitação do aluno <strong>${sol.usuario}</strong> foi recusada.`);
+          renderizarTudo();
+        }
+      }
+    }
+
+    /* Cadastro de Aluno */
+    function cadastrarAluno(event) {
+      event.preventDefault();
+      const nome = document.getElementById('alunoNome').value.trim();
+      const email = document.getElementById('alunoEmail').value.trim();
+      const curso = document.getElementById('alunoCurso').value;
+      const senha = document.getElementById('alunoSenha').value;
+      const liberarPrimeira = document.getElementById('alunoLiberarPrimeira').checked;
+
+      const alunos = getAlunos();
+      if (alunos.some(a => a.email.toLowerCase() === email.toLowerCase())) {
+        mostrarAlerta("Já existe um aluno cadastrado com este e-mail institucional.", "erro");
+        return;
+      }
+
+      const novoId = Date.now();
+      const novaMatricula = "IBEM-2026-" + String(alunos.length + 1).padStart(3, '0');
+
+      alunos.push({
+        id: novoId,
+        matricula: novaMatricula,
+        nome: nome,
+        email: email,
+        curso: curso,
+        data: new Date().toLocaleDateString('pt-BR'),
+        status: "Ativo"
+      });
+      saveAlunos(alunos);
+
+      document.getElementById('alunoNome').value = '';
+      document.getElementById('alunoEmail').value = '';
+      document.getElementById('alunoSenha').value = '';
+
+      mostrarAlerta(`Aluno <strong>${nome}</strong> matriculado com sucesso sob matrícula <strong>${novaMatricula}</strong>.`);
+      renderizarTudo();
+    }
+
+    /* Excluir Aluno */
+    function excluirAluno(id) {
+      const alunos = getAlunos();
+      const aluno = alunos.find(a => String(a.id) === String(id));
+      const nomeAluno = aluno ? aluno.nome : 'o aluno';
+
+      if (confirm(`Deseja realmente remover a matrícula de "${nomeAluno}" do sistema?`)) {
+        const novosAlunos = alunos.filter(a => String(a.id) !== String(id));
+        saveAlunos(novosAlunos);
+
+        // Se houver solicitações pendentes deste aluno, remove também
+        if (aluno) {
+          let solicitacoes = getSolicitacoes();
+          solicitacoes = solicitacoes.filter(s => s.usuario !== aluno.nome && s.email !== aluno.email);
+          saveSolicitacoes(solicitacoes);
+        }
+
+        mostrarAlerta(`Matrícula do aluno <strong>${nomeAluno}</strong> foi removida.`);
+        renderizarTudo();
+      }
+    }
+
+    /* Cadastrar Aula */
+    function cadastrarAula(event) {
+      event.preventDefault();
+      const titulo = document.getElementById('aulaTitulo').value.trim();
+      const ordem = parseInt(document.getElementById('aulaOrdem').value);
+      const texto = document.getElementById('aulaTexto').value.trim();
+      const liberarTodos = document.getElementById('aulaLiberarTodos').checked;
+
+      const aulas = getAulas();
+      const novoId = aulas.length > 0 ? Math.max(...aulas.map(a => a.id)) + 1 : 1;
+
+      aulas.push({
+        id: novoId,
+        ordem: ordem,
+        titulo: titulo,
+        texto: texto,
+        liberado: liberarTodos,
+        concluido: false
+      });
+      saveAulas(aulas);
+
+      document.getElementById('aulaTitulo').value = '';
+      document.getElementById('aulaTexto').value = '';
+      document.getElementById('aulaOrdem').value = ordem + 1;
+
+      mostrarAlerta(`Módulo curricular <strong>${titulo}</strong> cadastrado com sucesso.`);
+      renderizarTudo();
+    }
+
+    /* Liberação Coletiva */
+    function liberarAulaParaTodos() {
+      const select = document.getElementById('selectAulaColetiva');
+      const moduloId = parseInt(select.value);
+      if (!moduloId) {
+        alert("Por favor, selecione um módulo na lista.");
+        return;
+      }
+      if (confirm("Confirmar a liberação deste módulo para todos os alunos matriculados?")) {
+        const aulas = getAulas();
+        const aula = aulas.find(a => a.id === moduloId);
+        if (aula) {
+          aula.liberado = true;
+          saveAulas(aulas);
+          mostrarAlerta(`Módulo <strong>${aula.titulo}</strong> liberado para toda a turma de alunos.`);
+          renderizarTudo();
+        }
+      }
+    }
+
+    /* Liberação Individual */
+    function toggleLiberarModulo(moduloId) {
+      const aulas = getAulas();
+      const aula = aulas.find(a => a.id === moduloId);
+      if (aula) {
+        aula.liberado = !aula.liberado;
+        saveAulas(aulas);
+        mostrarAlerta(`Status de acesso ao módulo <strong>${aula.titulo}</strong> atualizado.`);
+        carregarMatrizAluno();
+        renderizarTudo();
+      }
+    }
+
+    function liberarTodasAlunoSelecionado() {
+      const select = document.getElementById('selectAlunoLiberar');
+      const alunoNome = select.options[select.selectedIndex]?.text.split(' (')[0] || 'Aluno';
+      if (confirm(`Liberar todos os módulos curriculares para ${alunoNome}?`)) {
+        const aulas = getAulas();
+        aulas.forEach(a => a.liberado = true);
+        saveAulas(aulas);
+        mostrarAlerta(`Todos os módulos foram liberados para <strong>${alunoNome}</strong>.`);
+        carregarMatrizAluno();
+        renderizarTudo();
+      }
+    }
+
+    function carregarMatrizAluno() {
+      const aulas = getAulas();
+      const container = document.getElementById('containerMatrizAulas');
+      if (!container) return;
+
+      let html = '';
+      aulas.forEach(a => {
+        const isLiberada = a.liberado;
+        html += `
+          <div class="aula-card-item ${isLiberada ? 'liberada' : ''}">
+            <div>
+              <div class="aula-card-top">
+                <span class="aula-card-num">Módulo #${a.ordem}</span>
+                <span class="status-badge ${isLiberada ? 'badge-liberado' : 'badge-bloqueado'}">
+                  ${isLiberada ? 'Liberado' : 'Bloqueado'}
+                </span>
+              </div>
+              <h4 class="aula-card-title">${a.titulo}</h4>
+              <p class="aula-card-desc">${a.texto || 'Sem descrição.'}</p>
+            </div>
+            <div>
+              <button type="button" class="btn btn-sm ${isLiberada ? 'btn-outline' : 'btn-success'}" style="width:100%;" onclick="toggleLiberarModulo(${a.id})">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  ${isLiberada ? '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>' : '<polyline points="20 6 9 17 4 12"></polyline>'}
+                </svg>
+                <span>${isLiberada ? 'Revogar Acesso' : 'Liberar Módulo'}</span>
+              </button>
+            </div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
+    /* Filtrar Alunos */
+    function filtrarAlunos() {
+      const termo = (document.getElementById('filtroAlunosInput')?.value || '').toLowerCase();
+      const linhas = document.querySelectorAll('#tabelaAlunosCorpo tr');
+      linhas.forEach(linha => {
+        const texto = linha.innerText.toLowerCase();
+        linha.style.display = texto.includes(termo) ? '' : 'none';
+      });
+    }
+
+    /* Helpers */
+    function gerarSenhaAleatoria() {
+      const chars = "abcdefghijkmnpqrstuvwxyz23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+      let senha = "";
+      for (let i = 0; i < 8; i++) senha += chars.charAt(Math.floor(Math.random() * chars.length));
+      const input = document.getElementById('alunoSenha');
+      input.value = senha;
+      input.type = 'text';
+    }
+
+    function toggleSenha(idInput, btn) {
+      const input = document.getElementById(idInput);
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.textContent = 'Ocultar';
+      } else {
+        input.type = 'password';
+        btn.textContent = 'Exibir';
+      }
+    }
+
+    function sairPainel(event) {
+      event.preventDefault();
+      if (confirm("Deseja realmente encerrar a sessão de administrador?")) {
+        window.location.href = '../index.html';
+      }
+    }
+
+    /* Renderização Completa do Painel */
+    function renderizarTudo() {
+      const alunos = getAlunos();
+      const aulas = getAulas();
+      const solicitacoes = getSolicitacoes();
+      const pendentes = solicitacoes.filter(s => s.status === 'pendente');
+      const historico = getHistorico();
+
+      // Métricas Reais
+      document.getElementById('statTotalAlunos').textContent = alunos.length;
+      document.getElementById('statTotalAulas').textContent = aulas.length;
+      document.getElementById('statTotalPendentes').textContent = pendentes.length;
+      document.getElementById('statTotalConclusoes').textContent = aulas.filter(a => a.concluido).length;
+
+      const subPendentes = document.getElementById('subtextoPendentes');
+      if (subPendentes) {
+        subPendentes.textContent = pendentes.length > 0 ? `${pendentes.length} aguardando liberação` : 'Tudo em dia';
+      }
+
+      // Badge no Nav Tab
+      const badgeNav = document.getElementById('badgeContadorPendentes');
+      if (badgeNav) {
+        if (pendentes.length > 0) {
+          badgeNav.textContent = pendentes.length + ' pendente' + (pendentes.length > 1 ? 's' : '');
+          badgeNav.style.display = 'inline-block';
+        } else {
+          badgeNav.style.display = 'none';
+        }
+      }
+
+      // Card de pendentes borda de destaque
+      const cardPendentes = document.getElementById('cardPendentesWrapper');
+      if (cardPendentes) {
+        cardPendentes.style.border = pendentes.length > 0 ? '1.5px solid #F59E0B' : '1px solid var(--border-light)';
+      }
+
+      // 1. Tabela de Solicitações Pendentes
+      const containerSol = document.getElementById('containerSolicitacoes');
+      const badgeHeader = document.getElementById('badgePendentesHeader');
+      if (badgeHeader) {
+        badgeHeader.innerHTML = pendentes.length > 0
+          ? `<span class="status-badge badge-pendente"><span class="badge-counter">${pendentes.length}</span> Aguardando parecer</span>`
+          : `<span class="status-badge badge-liberado">Tudo em dia</span>`;
+      }
+
+      if (pendentes.length === 0) {
+        containerSol.innerHTML = `
+          <div class="empty-state">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <h4>Todas as solicitações de módulos foram atendidas!</h4>
+            <p style="font-size:0.83rem;">Quando um aluno solicitar liberação de um novo módulo pelo portal, a solicitação aparecerá aqui com ações imediatas de deferimento.</p>
+          </div>
+        `;
+      } else {
+        let htmlSol = `
+          <div class="table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Estudante</th>
+                  <th>Curso Técnico</th>
+                  <th>Módulo Solicitado</th>
+                  <th>Data do Pedido</th>
+                  <th>Status</th>
+                  <th style="text-align:right;">Parecer Pedagógico</th>
+                </tr>
+              </thead>
+              <tbody>
+        `;
+        pendentes.forEach(s => {
+          htmlSol += `
+            <tr>
+              <td>
+                <strong style="color:var(--primary); font-size:0.92rem;">${s.usuario}</strong><br>
+                <span style="font-size:0.75rem; color:var(--text-muted);">${s.email || ''}</span>
+              </td>
+              <td><span class="status-badge badge-curso">${s.curso || 'Formação Técnica'}</span></td>
+              <td><span class="status-badge" style="background:#EFF6FF; color:#1D4ED8; font-weight:600;">${s.modulo_titulo}</span></td>
+              <td><span style="color:var(--text-muted); font-size:0.8rem;">${s.data}</span></td>
+              <td>
+                <span class="status-badge badge-pendente">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  Pendente
+                </span>
+              </td>
+              <td style="text-align:right; white-space:nowrap;">
+                <button type="button" class="btn btn-sm btn-success" style="margin-right:6px;" onclick="aprovarSolicitacao(${s.id})" title="Liberar acesso ao módulo">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Liberar Aula</span>
+                </button>
+                <button type="button" class="btn btn-sm btn-outline" style="color:var(--danger); border-color:#FECACA;" onclick="rejeitarSolicitacao(${s.id})" title="Recusar">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                  <span>Recusar</span>
+                </button>
+              </td>
+            </tr>
+          `;
+        });
+        htmlSol += `</tbody></table></div>`;
+        containerSol.innerHTML = htmlSol;
+      }
+
+      // 2. Histórico de Solicitações
+      const containerHist = document.getElementById('containerHistorico');
+      if (containerHist) {
+        if (historico.length === 0) {
+          containerHist.innerHTML = `<div class="empty-state"><p>Nenhum parecer emitido recentemente.</p></div>`;
+        } else {
+          let htmlHist = `
+            <div class="table-responsive">
+              <table class="modern-table">
+                <thead>
+                  <tr>
+                    <th>Estudante</th>
+                    <th>Módulo Curricular</th>
+                    <th>Data Solicitação</th>
+                    <th>Data Parecer</th>
+                    <th>Decisão</th>
+                  </tr>
+                </thead>
+                <tbody>
+          `;
+          historico.slice(0, 5).forEach(h => {
+            const isAprov = h.status === 'aprovada';
+            htmlHist += `
+              <tr>
+                <td><strong>${h.usuario}</strong></td>
+                <td><span style="font-size:0.83rem; color:var(--text-main);">${h.modulo_titulo}</span></td>
+                <td><span style="color:var(--text-muted); font-size:0.8rem;">${h.data_solic}</span></td>
+                <td><span style="color:var(--text-muted); font-size:0.8rem;">${h.data_resp}</span></td>
+                <td>
+                  <span class="status-badge ${isAprov ? 'badge-aprovada' : 'badge-rejeitada'}">
+                    ${isAprov ? 'Liberada' : 'Recusada'}
+                  </span>
+                </td>
+              </tr>
+            `;
+          });
+          htmlHist += `</tbody></table></div>`;
+          containerHist.innerHTML = htmlHist;
+        }
+      }
+
+      // 3. Tabela de Alunos (Aba Alunos e Resumo Dashboard)
+      const containerAlunos = document.getElementById('containerTabelaAlunos');
+      const containerResumo = document.getElementById('containerAlunosResumo');
+
+      let htmlAlunos = '';
+      if (alunos.length === 0) {
+        htmlAlunos = `
+          <div class="empty-state">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+            </svg>
+            <h4>Nenhum aluno matriculado no momento</h4>
+            <p style="font-size:0.83rem;">Utilize o formulário de cadastro acima para matricular um novo aluno.</p>
+          </div>
+        `;
+      } else {
+        htmlAlunos = `
+          <div class="table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Matrícula</th>
+                  <th>Nome Completo</th>
+                  <th>Curso Técnico</th>
+                  <th>E-mail</th>
+                  <th>Cadastrado em</th>
+                  <th>Status</th>
+                  <th style="text-align:right;">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="tabelaAlunosCorpo">
+        `;
+        alunos.forEach(a => {
+          htmlAlunos += `
+            <tr>
+              <td><strong style="color:var(--primary); font-size:0.8rem;">${a.matricula || 'IBEM-2026'}</strong></td>
+              <td><strong>${a.nome}</strong></td>
+              <td><span class="status-badge badge-curso">${a.curso || 'Técnico'}</span></td>
+              <td><span style="color:var(--text-muted);">${a.email}</span></td>
+              <td><span style="color:var(--text-muted); font-size:0.8rem;">${a.data}</span></td>
+              <td><span class="status-badge badge-liberado">${a.status || 'Ativo'}</span></td>
+              <td style="text-align:right;">
+                <button type="button" class="btn btn-sm btn-outline" style="color:var(--danger); border-color:#FECACA;" onclick="excluirAluno('${a.id}')" title="Excluir matrícula">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                  <span>Excluir</span>
+                </button>
+              </td>
+            </tr>
+          `;
+        });
+        htmlAlunos += `</tbody></table></div>`;
+      }
+
+      if (containerAlunos) containerAlunos.innerHTML = htmlAlunos;
+      if (containerResumo) containerResumo.innerHTML = htmlAlunos;
+
+      // 4. Lista de Módulos (Aba Aulas)
+      const containerAulas = document.getElementById('containerListaAulas');
+      if (containerAulas) {
+        let htmlAulas = `
+          <div class="table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th style="width:80px;">Ordem</th>
+                  <th>Título do Módulo</th>
+                  <th>Prévia do Conteúdo</th>
+                  <th>Status de Acesso</th>
+                </tr>
+              </thead>
+              <tbody>
+        `;
+        aulas.forEach(a => {
+          htmlAulas += `
+            <tr>
+              <td><span class="status-badge" style="background:#F1F5F9; color:var(--primary); font-weight:700;">#${a.ordem}</span></td>
+              <td><strong style="color:var(--primary); font-size:0.92rem;">${a.titulo}</strong></td>
+              <td><span style="color:var(--text-muted); font-size:0.82rem;">${(a.texto || '').substring(0, 95)}...</span></td>
+              <td>
+                <span class="status-badge ${a.liberado ? 'badge-liberado' : 'badge-bloqueado'}">
+                  ${a.liberado ? 'Liberado Geral' : 'Sob Solicitação'}
+                </span>
+              </td>
+            </tr>
+          `;
+        });
+        htmlAulas += `</tbody></table></div>`;
+        containerAulas.innerHTML = htmlAulas;
+      }
+
+      // 5. Select Aluno Liberar (Aba Liberar)
+      const selectAlunos = document.getElementById('selectAlunoLiberar');
+      if (selectAlunos) {
+        const valAnterior = selectAlunos.value;
+        selectAlunos.innerHTML = '';
+        alunos.forEach(a => {
+          const opt = document.createElement('option');
+          opt.value = a.id;
+          opt.textContent = `${a.nome} (${a.curso || 'Técnico'} • ${a.matricula})`;
+          selectAlunos.appendChild(opt);
+        });
+        if (valAnterior) selectAlunos.value = valAnterior;
+      }
+
+      // 6. Select Aula Coletiva (Aba Liberar)
+      const selectColetivo = document.getElementById('selectAulaColetiva');
+      if (selectColetivo) {
+        selectColetivo.innerHTML = '<option value="">Selecione um módulo para liberação...</option>';
+        aulas.forEach(a => {
+          const opt = document.createElement('option');
+          opt.value = a.id;
+          opt.textContent = `#${a.ordem} &bull; ${a.titulo}`;
+          selectColetivo.appendChild(opt);
+        });
+      }
+
+      // Atualiza a matriz do aluno selecionado
+      carregarMatrizAluno();
+    }
+
+    // Inicialização ao carregar a página
+    document.addEventListener('DOMContentLoaded', () => {
+      // Renderiza todo o painel com os dados reais
+      renderizarTudo();
+    });
+  </script>
+
+</body>
+</html>

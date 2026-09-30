@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal do Aluno - IBEM</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../assets/img/logo.png">
+
+  <style>
+    :root {
+      --primary: #0A3D62;
+      --primary-light: #145DA0;
+      --accent: #0284C7;
+      --success: #10B981;
+      --surface: #FFFFFF;
+      --bg: #F4F6F9;
+      --text: #1E293B;
+      --muted: #64748B;
+      --border: #E2E8F0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 860px;
+    }
+
+    /* Topo do Aluno */
+    .header-box {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .header-info h1 {
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+
+    .header-info p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-site {
+      background: #F1F5F9;
+      color: var(--primary);
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .btn-site:hover {
+      background: #E2E8F0;
+    }
+
+    .btn-sair {
+      background: #FEE2E2;
+      color: #B91C1C;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .btn-sair:hover {
+      background: #EF4444;
+      color: white;
+    }
+
+    /* Alerta */
+    .alert {
+      background: #ECFDF5;
+      color: #065F46;
+      border: 1px solid #A7F3D0;
+      padding: 12px 18px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 0.88rem;
+      display: none;
+    }
+
+    /* Card de Aula */
+    .card-aula {
+      background: var(--surface);
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      padding: 20px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .card-aula.liberada {
+      border-left: 5px solid var(--success);
+    }
+
+    .card-aula.bloqueada {
+      border-left: 5px solid #CBD5E1;
+      opacity: 0.9;
+    }
+
+    .aula-titulo {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .badge-verde { background: #DCFCE7; color: #15803D; }
+    .badge-azul { background: #DBEAFE; color: #1E40AF; }
+    .badge-amarelo { background: #FEF3C7; color: #B45309; }
+    .badge-cinza { background: #F1F5F9; color: #64748B; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn-entrar {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-entrar:hover {
+      background: var(--primary-light);
+    }
+
+    .btn-solicitar {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FDE68A;
+    }
+
+    .btn-solicitar:hover {
+      background: #FDE68A;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <div class="header-box">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <img src="../assets/img/logo.png" alt="IBEM" style="width:52px; height:52px; object-fit:contain;">
+        <div class="header-info">
+          <h1>Portal do Aluno - IBEM</h1>
+          <p>Bem-vindo(a), <strong id="nomeAluno">Aluno Teste IBEM</strong></p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../index.html" class="btn-site">Início</a>
+        <a href="../index.html" class="btn-sair">Sair</a>
+      </div>
+    </div>
+
+    <div id="alertaBox" class="alert"></div>
+
+    <h2 style="font-size:1.15rem; color:var(--primary); margin-bottom:16px;">Minhas Aulas e Módulos</h2>
+
+    <div id="listaAulasContainer">
+      <!-- Módulos renderizados dinamicamente -->
+    </div>
+
+  </div>
+
+  <script>
+    // Dados padrão de módulos do curso
+    const modulosPadrao = [
+      {
+        id: 1,
+        ordem: 1,
+        titulo: "Módulo 1 - Introdução e Fundamentos",
+        liberado: true,
+        concluido: false,
+        pendente: false
+      },
+      {
+        id: 2,
+        ordem: 2,
+        titulo: "Módulo 2 - Prática Operacional e Ferramentas",
+        liberado: false,
+        concluido: false,
+        pendente: false
+      },
+      {
+        id: 3,
+        ordem: 3,
+        titulo: "Módulo 3 - Preparação para o Mercado de Trabalho",
+        liberado: false,
+        concluido: false,
+        pendente: false
+      }
+    ];
+
+    function carregarProgresso() {
+      const salvo = localStorage.getItem('ibem_modulos');
+      if (salvo) {
+        try {
+          return JSON.parse(salvo);
+        } catch(e) {
+          return modulosPadrao;
+        }
+      }
+      localStorage.setItem('ibem_modulos', JSON.stringify(modulosPadrao));
+      return modulosPadrao;
+    }
+
+    function salvarProgresso(modulos) {
+      localStorage.setItem('ibem_modulos', JSON.stringify(modulos));
+    }
+
+    function solicitarLiberacao(id) {
+      const modulos = carregarProgresso();
+      const mod = modulos.find(m => m.id === id);
+      if (mod) {
+        mod.pendente = true;
+        salvarProgresso(modulos);
+
+        // Adiciona solicitação ao admin storage
+        const solicitacoes = JSON.parse(localStorage.getItem('ibem_solicitacoes') || '[]');
+        const jaExiste = solicitacoes.some(s => s.modulo_id === id && s.status === 'pendente');
+        if (!jaExiste) {
+          solicitacoes.unshift({
+            id: Date.now(),
+            usuario: 'Aluno Teste IBEM',
+            modulo_id: id,
+            modulo_titulo: mod.titulo,
+            status: 'pendente',
+            data: new Date().toLocaleString('pt-BR')
+          });
+          localStorage.setItem('ibem_solicitacoes', JSON.stringify(solicitacoes));
+        }
+
+        const alerta = document.getElementById('alertaBox');
+        if (alerta) {
+          alerta.innerHTML = `✔ Solicitação enviada com sucesso para o <strong>${mod.titulo}</strong>! O administrador já pode aprovar no painel.`;
+          alerta.style.display = 'block';
+        }
+        renderizar();
+      }
+    }
+
+    function renderizar() {
+      const modulos = carregarProgresso();
+      const container = document.getElementById('listaAulasContainer');
+      container.innerHTML = '';
+
+      modulos.forEach(aula => {
+        const isLiberado = aula.liberado;
+        const isConcluido = aula.concluido;
+        const isPendente = aula.pendente;
+
+        let badgeHtml = '';
+        if (isConcluido) {
+          badgeHtml = '<span class="badge badge-azul">Concluída</span>';
+        } else if (isLiberado) {
+          badgeHtml = '<span class="badge badge-verde">Liberada</span>';
+        } else if (isPendente) {
+          badgeHtml = '<span class="badge badge-amarelo">Aguardando Liberação</span>';
+        } else {
+          badgeHtml = '<span class="badge badge-cinza">Bloqueada</span>';
+        }
+
+        let acaoHtml = '';
+        if (isLiberado) {
+          acaoHtml = `<a href="aulas.html?id=${aula.id}" class="btn btn-entrar">Acessar Aula →</a>`;
+        } else if (isPendente) {
+          acaoHtml = `<button type="button" class="btn" style="background:#F1F5F9; color:#94A3B8; cursor:not-allowed;" disabled>Em Análise</button>`;
+        } else {
+          acaoHtml = `<button type="button" onclick="solicitarLiberacao(${aula.id})" class="btn btn-solicitar" title="Solicitar liberação desta aula ao administrador">Solicitar Liberação</button>`;
+        }
+
+        const card = document.createElement('div');
+        card.className = `card-aula ${isLiberado ? 'liberada' : 'bloqueada'}`;
+        card.innerHTML = `
+          <div>
+            <div class="aula-titulo">
+              #${aula.ordem} &bull; ${aula.titulo}
+            </div>
+            <div>
+              ${badgeHtml}
+            </div>
+          </div>
+          <div>
+            ${acaoHtml}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Inicialização
+    document.addEventListener('DOMContentLoaded', function() {
+      // Recupera nome do aluno se armazenado na sessão
+      const nomeSalvo = sessionStorage.getItem('ibem_usuario');
+      if (nomeSalvo) {
+        document.getElementById('nomeAluno').textContent = nomeSalvo;
+      }
+      renderizar();
+    });
+  </script>
+
+</body>
+</html>

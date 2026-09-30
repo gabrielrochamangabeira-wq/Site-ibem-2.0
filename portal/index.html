@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Institucional IBEM</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../assets/img/logo.png">
+
+  <style>
+    :root {
+      --primary: #0A3D62;
+      --primary-light: #145DA0;
+      --accent: #0284C7;
+      --surface: #FFFFFF;
+      --bg: #F4F6F9;
+      --text: #1E293B;
+      --muted: #64748B;
+      --border: #E2E8F0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0A3D62 0%, #145DA0 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .portal-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 36px 30px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      text-align: center;
+    }
+
+    .portal-logo {
+      height: 65px;
+      width: auto;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 1.35rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
+
+    .portal-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .portal-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn-aluno {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .btn-aluno:hover {
+      background: var(--primary-light);
+    }
+
+    .btn-admin {
+      background: #E0F2FE;
+      color: #0369A1;
+      border: 1.5px solid #BAE6FD;
+    }
+
+    .btn-admin:hover {
+      background: #BAE6FD;
+    }
+
+    .btn-site {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+
+    .btn-site:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="portal-card">
+    <img src="../assets/img/logo.png" alt="Logotipo IBEM" class="portal-logo" width="80" height="80" style="width:80px; height:80px; margin:0 auto 16px auto; display:block; object-fit:contain;">
+    <h1>Portal Institucional IBEM</h1>
+    <p>Selecione o ambiente que deseja acessar no portal</p>
+
+    <div class="portal-options">
+      <a href="aluno.html" class="portal-btn btn-aluno">
+        Área do Aluno
+      </a>
+      <a href="admin.html" class="portal-btn btn-admin">
+        Painel Administrativo
+      </a>
+    </div>
+
+    <a href="../index.html" class="btn-site">
+      ← Voltar para a Página Inicial do Site
+    </a>
+  </div>
+
+</body>
+</html>
